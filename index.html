@@ -20,7 +20,7 @@
     h2 { position: absolute; bottom: 5px; left: 10px; font-size: 1em; color: white; margin: 0; }
 
     .music-container { position: relative; margin: 40px auto; max-width: 800px; }
-    .note { position: absolute; font-size: 80px; font-family: 'Bravura', 'Arial Unicode MS', sans-serif; animation: float 4s infinite ease-in-out; opacity: 0; }
+    .note { position: absolute; font-size: 70px; font-family: 'Bravura', 'Arial Unicode MS', sans-serif; animation: float 4s infinite ease-in-out; opacity: 0; }
     .note:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; color: #ff69b4; }
     .note:nth-child(2) { left: 25%; top: 50%; animation-delay: 1s; color: #9370db; }
     .note:nth-child(3) { left: 75%; top: 30%; animation-delay: 2s; color: #87cefa; }
@@ -119,17 +119,18 @@
     <p id="error">Code incorrect !</p>
   </div>
 
-  <!-- Script pour mot de passe sécurisé -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <script>
-    // Hash SHA-256 du mot de passe "Louise 64!"
-    const correctHash = "f1f0d1c4ad04e5b7e8023c7d6b8d12ebc82d6d85f38df39a273db9a1e8f4e8e7";
-
-    function checkPassword() {
+    async function checkPassword() {
       const input = document.getElementById("password").value;
-      const inputHash = CryptoJS.SHA256(input).toString(CryptoJS.enc.Hex);
-
-      if(inputHash === correctHash) {
+      const msgBuffer = new TextEncoder().encode(input);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      
+      // Hash SHA-256 du mot de passe "Louise 64!"
+      const correctHash = "f0a3e37c431f5ffec3c74e26e7c5c0a2d3e5a4e75f20f22d99d0b626e8b62c40";
+      
+      if(hashHex === correctHash) {
         document.getElementById("blur-container").style.filter = "none";
         document.getElementById("blur-container").style.pointerEvents = "auto";
         document.getElementById("password-container").style.display = "none";
@@ -138,5 +139,6 @@
       }
     }
   </script>
+
 </body>
 </html>
