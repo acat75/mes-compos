@@ -17,10 +17,10 @@
     }
 
     h1 { color: white; font-size: 2.5em; margin-bottom: 30px; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-    h2 { position: absolute; bottom: 5px; left: 10px; font-size: 0.6em; color: white; margin: 0; }
+    h2 { position: absolute; bottom: 5px; left: 10px; font-size: 1em; color: white; margin: 0; }
 
     .music-container { position: relative; margin: 40px auto; max-width: 800px; }
-    .note { position: absolute; font-size: 50px; font-family: 'Bravura', 'Arial Unicode MS', sans-serif; animation: float 4s infinite ease-in-out; opacity: 0; }
+    .note { position: absolute; font-size: 80px; font-family: 'Bravura', 'Arial Unicode MS', sans-serif; animation: float 4s infinite ease-in-out; opacity: 0; }
     .note:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; color: #ff69b4; }
     .note:nth-child(2) { left: 25%; top: 50%; animation-delay: 1s; color: #9370db; }
     .note:nth-child(3) { left: 75%; top: 30%; animation-delay: 2s; color: #87cefa; }
@@ -85,6 +85,8 @@
     }
 
   </style>
+  <!-- CryptoJS pour le chiffrement -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
 
@@ -120,18 +122,24 @@
   </div>
 
   <script>
+    // Contenu chiffré avec mot de passe "Louise 64!"
+    const encryptedPassword = "U2FsdGVkX1+9rUlTpt0gPpF6f+gDJq7oLkTMCY+G+U0=";
+
     function checkPassword() {
       const input = document.getElementById("password").value;
-      const correct = "Louise 64!";
-      if(input === correct) {
-        document.getElementById("blur-container").style.filter = "none";
-        document.getElementById("blur-container").style.pointerEvents = "auto";
-        document.getElementById("password-container").style.display = "none";
-      } else {
+      try {
+        const decrypted = CryptoJS.AES.decrypt(encryptedPassword, input).toString(CryptoJS.enc.Utf8);
+        if(decrypted === "ok") { // "ok" est juste un témoin pour vérifier le mot de passe
+          document.getElementById("blur-container").style.filter = "none";
+          document.getElementById("blur-container").style.pointerEvents = "auto";
+          document.getElementById("password-container").style.display = "none";
+        } else {
+          document.getElementById("error").style.display = "block";
+        }
+      } catch(e) {
         document.getElementById("error").style.display = "block";
       }
     }
   </script>
 </body>
 </html>
-
