@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mes Compos</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #f0f8ff, #e6e6fa);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #4b0082;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .music-icon {
+      font-size: 60px;
+      color: #ff69b4;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    audio {
+      margin: 20px auto;
+      display: block;
+      width: 90%;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Coucou ! Voici mes compos ^^</h1>
+  <div class="music-icon"></div>
+
+  <audio controls src="compo1.mp3"></audio>
+  <audio controls src="compo2.mp3"></audio>
+  <audio controls src="compo3.mp3"></audio>
+
+</body>
+</html>
