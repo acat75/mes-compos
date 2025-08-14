@@ -13,13 +13,23 @@
       min-height: 100vh;
       color: white;
       background: linear-gradient(135deg, #0b0c2a, #1c1f4a, #3a2c5b, #5c3d70);
+      position: relative;
     }
 
     h1 {
-      color: #ff69b4;
+      color: white; /* titre en blanc */
       font-size: 2.5em;
       margin-bottom: 30px;
-      text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    h2 {
+      position: absolute;
+      bottom: 5px;
+      left: 10px;
+      font-size: 0.6em;
+      color: white; /* copyright en blanc */
+      margin: 0;
     }
 
     .music-container {
@@ -30,8 +40,8 @@
 
     .note {
       position: absolute;
-      font-size: 24px;
-      color: rgba(255, 255, 255, 0.7);
+      font-size: 50px; /* notes plus grandes */
+      font-family: 'Bravura', 'Arial Unicode MS', sans-serif; /* police musicale jolie */
       animation: float 4s infinite ease-in-out;
       opacity: 0;
     }
@@ -66,6 +76,7 @@
 <body>
   <h1>Salut ! Voici quelques petites compos que j'ai faites au piano 🎹🎶</h1>
   <h2>Par Alice, © 2025 Tous droits réservés </h2>
+
   <div class="music-container">
     <div class="note">♪</div>
     <div class="note">♫</div>
@@ -79,5 +90,3 @@
   <audio controls src="compo3.mp3"></audio>
 </body>
 </html>
-
-
