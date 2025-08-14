@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Mes Compos</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -16,20 +17,58 @@
       position: relative;
     }
 
-    h1 { color: white; font-size: 2.5em; margin-bottom: 30px; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-    h2 { position: absolute; bottom: 5px; left: 10px; font-size: 1em; color: white; margin: 0; }
+    h1 { 
+      color: white; 
+      font-size: 2.5em; 
+      margin-bottom: 30px; 
+      text-shadow: 0 0 10px rgba(255,255,255,0.5); 
+    }
 
-    .music-container { position: relative; margin: 40px auto; max-width: 800px; }
-    .note { position: absolute; font-size: 80px; font-family: 'Bravura', 'Arial Unicode MS', sans-serif; animation: float 4s infinite ease-in-out; opacity: 0; }
+    h2 { 
+      position: absolute; 
+      bottom: 5px; 
+      left: 10px; 
+      font-size: 1em; /* agrandi */
+      color: white; 
+      margin: 0; 
+    }
+
+    .music-container { 
+      position: relative; 
+      margin: 40px auto; 
+      max-width: 800px; 
+    }
+
+    .note { 
+      position: absolute; 
+      font-size: 80px; /* agrandi */
+      font-family: 'Bravura', 'Arial Unicode MS', sans-serif; 
+      animation: float 4s infinite ease-in-out; 
+      opacity: 0; 
+    }
+
     .note:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; color: #ff69b4; }
     .note:nth-child(2) { left: 25%; top: 50%; animation-delay: 1s; color: #9370db; }
     .note:nth-child(3) { left: 75%; top: 30%; animation-delay: 2s; color: #87cefa; }
     .note:nth-child(4) { left: 60%; top: 70%; animation-delay: 3s; color: #98fb98; }
     .note:nth-child(5) { left: 40%; top: 80%; animation-delay: 4s; color: #ffa07a; }
 
-    @keyframes float { 0% { transform: translateY(0) rotate(0deg); opacity:0; } 20% { opacity:1; } 100% { transform: translateY(-100px) rotate(360deg); opacity:0; } }
+    @keyframes float { 
+      0% { transform: translateY(0) rotate(0deg); opacity:0; } 
+      20% { opacity:1; } 
+      100% { transform: translateY(-100px) rotate(360deg); opacity:0; } 
+    }
 
-    audio { margin:30px auto; display:block; width:90%; max-width:500px; border-radius:50px; box-shadow:0 0 20px rgba(255,105,180,0.3); transition: transform 0.3s; }
+    audio { 
+      margin:30px auto; 
+      display:block; 
+      width:90%; 
+      max-width:500px; 
+      border-radius:50px; 
+      box-shadow:0 0 20px rgba(255,105,180,0.3); 
+      transition: transform 0.3s; 
+    }
+
     audio:hover { transform: scale(1.03); }
 
     /* Conteneur flou */
@@ -83,10 +122,7 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-
   </style>
-  <!-- CryptoJS pour le chiffrement -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
 
@@ -122,14 +158,13 @@
   </div>
 
   <script>
-    // Contenu chiffré avec mot de passe "Louise 64!"
-    const encryptedPassword = "U2FsdGVkX1+9rUlTpt0gPpF6f+gDJq7oLkTMCY+G+U0=";
+    const encryptedPassword = "U2FsdGVkX19rQ6yTe4iJ2+ZRHlfEpQp7OrRkVbEX0HU="; // "ok" chiffré avec mot de passe "Louise 64!"
 
     function checkPassword() {
       const input = document.getElementById("password").value;
       try {
         const decrypted = CryptoJS.AES.decrypt(encryptedPassword, input).toString(CryptoJS.enc.Utf8);
-        if(decrypted === "ok") { // "ok" est juste un témoin pour vérifier le mot de passe
+        if(decrypted === "ok") {
           document.getElementById("blur-container").style.filter = "none";
           document.getElementById("blur-container").style.pointerEvents = "auto";
           document.getElementById("password-container").style.display = "none";
@@ -141,5 +176,6 @@
       }
     }
   </script>
+
 </body>
 </html>
