@@ -29,8 +29,30 @@
 
     @keyframes float { 0% { transform: translateY(0) rotate(0deg); opacity:0; } 20% { opacity:1; } 100% { transform: translateY(-100px) rotate(360deg); opacity:0; } }
 
-    audio { margin:30px auto; display:block; width:90%; max-width:500px; border-radius:50px; box-shadow:0 0 20px rgba(255,105,180,0.3); transition: transform 0.3s; }
+    audio { 
+      margin: 15px auto 5px; 
+      display: block; 
+      width: 90%; 
+      max-width: 500px; 
+      border-radius: 50px; 
+      box-shadow: 0 0 20px rgba(255,105,180,0.3); 
+      transition: transform 0.3s; 
+    }
+    
     audio:hover { transform: scale(1.03); }
+
+    /* Cacher le menu téléchargement du lecteur natif */
+    audio::-internal-media-controls-download-button {
+      display: none;
+    }
+    
+    audio::-webkit-media-controls-enclosure {
+      overflow: hidden;
+    }
+    
+    audio::-webkit-media-controls-panel {
+      width: calc(100% + 30px); /* Ajustement pour cacher le bouton */
+    }
 
     /* Conteneur flou - premier niveau */
     #blur-container {
@@ -97,30 +119,54 @@
       50% { transform: translateY(-10px); }
     }
 
-    /* Style pour le bouton de téléchargement */
+    /* Style pour le bouton de téléchargement personnalisé */
     .download-btn {
-      background: #4CAF50;
+      background: linear-gradient(45deg, #ff69b4, #9370db);
       color: white;
       border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
+      padding: 10px 20px;
+      border-radius: 25px;
       cursor: pointer;
-      margin: 5px auto 15px;
+      margin: 0 auto 25px;
       display: block;
-      font-size: 0.9em;
+      font-size: 0.95em;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(255,105,180,0.4);
+      transition: all 0.3s;
     }
 
     .download-btn:hover {
-      background: #45a049;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255,105,180,0.6);
     }
 
     /* Message d'information */
     .info-message {
       background: rgba(255,255,255,0.1);
-      padding: 10px;
-      border-radius: 5px;
+      padding: 15px;
+      border-radius: 10px;
       margin: 20px auto;
       max-width: 600px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Conteneur pour chaque morceau */
+    .track-container {
+      background: rgba(0,0,0,0.2);
+      border-radius: 15px;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 550px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .track-title {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      color: #ff69b4;
+      font-weight: bold;
     }
   </style>
 
@@ -137,7 +183,7 @@
 
   <!-- Contenu flouté -->
   <div id="blur-container">
-    <h2>Par Alice, © 2025 Tous droits réservés </h2>
+    <h2>Par Alice, © 2025 Tous droits réservés</h2>
 
     <div class="music-container">
       <div class="note">♪</div>
@@ -148,39 +194,80 @@
     </div>
 
     <div class="info-message">
-      <p>🎵 Vous avez accès aux compositions. Pour télécharger un fichier, cliquez sur le bouton correspondant et entrez le code de téléchargement.</p>
+      <p>🎵 Vous avez accès aux compositions.</p>
+      <p>⬇️ Pour télécharger un morceau, cliquez sur le bouton "Télécharger" correspondant et entrez le code.</p>
+      <p><small>(Le bouton de téléchargement natif du lecteur a été désactivé)</small></p>
     </div>
 
-    <!-- Les fichiers audio avec leurs boutons de téléchargement -->
-    <audio id="audio1" controls src="compo3.mp3"></audio>
-    <button class="download-btn" onclick="promptDownloadPassword('compo3.mp3')">Télécharger compo3.mp3</button>
+    <!-- Piste 1 -->
+    <div class="track-container">
+      <div class="track-title">Composition 3</div>
+      <audio controls controlsList="nodownload" src="compo3.mp3"></audio>
+      <button class="download-btn" onclick="promptDownloadPassword('compo3.mp3')">📥 Télécharger compo3.mp3</button>
+    </div>
 
-    <audio id="audio2" controls src="compo2.mp3"></audio>
-    <button class="download-btn" onclick="promptDownloadPassword('compo2.mp3')">Télécharger compo2.mp3</button>
+    <!-- Piste 2 -->
+    <div class="track-container">
+      <div class="track-title">Composition 2</div>
+      <audio controls controlsList="nodownload" src="compo2.mp3"></audio>
+      <button class="download-btn" onclick="promptDownloadPassword('compo2.mp3')">📥 Télécharger compo2.mp3</button>
+    </div>
 
-    <audio id="audio3" controls src="compo1.mp3"></audio>
-    <button class="download-btn" onclick="promptDownloadPassword('compo1.mp3')">Télécharger compo1.mp3</button>
+    <!-- Piste 3 -->
+    <div class="track-container">
+      <div class="track-title">Composition 1</div>
+      <audio controls controlsList="nodownload" src="compo1.mp3"></audio>
+      <button class="download-btn" onclick="promptDownloadPassword('compo1.mp3')">📥 Télécharger compo1.mp3</button>
+    </div>
 
-    <audio id="audio4" controls src="compo4.mp3"></audio>
-    <button class="download-btn" onclick="promptDownloadPassword('compo4.mp3')">Télécharger compo4.mp3</button>
+    <!-- Piste 4 -->
+    <div class="track-container">
+      <div class="track-title">Composition 4</div>
+      <audio controls controlsList="nodownload" src="compo4.mp3"></audio>
+      <button class="download-btn" onclick="promptDownloadPassword('compo4.mp3')">📥 Télécharger compo4.mp3</button>
+    </div>
 
-    <audio id="audio5" controls src="compo9.mp3"></audio>
-    <button class="download-btn" onclick="promptDownloadPassword('compo9.mp3')">Télécharger compo9.mp3</button>
+    <!-- Piste 5 -->
+    <div class="track-container">
+      <div class="track-title">Composition 9</div>
+      <audio controls controlsList="nodownload" src="compo9.mp3"></audio>
+      <button class="download-btn" onclick="promptDownloadPassword('compo9.mp3')">📥 Télécharger compo9.mp3</button>
+    </div>
 
-    <audio id="audio6" controls src="compo6.mp3"></audio>
-    <button class="download-btn" onclick="promptDownloadPassword('compo6.mp3')">Télécharger compo6.mp3</button>
+    <!-- Piste 6 -->
+    <div class="track-container">
+      <div class="track-title">Composition 6</div>
+      <audio controls controlsList="nodownload" src="compo6.mp3"></audio>
+      <button class="download-btn" onclick="promptDownloadPassword('compo6.mp3')">📥 Télécharger compo6.mp3</button>
+    </div>
 
-    <audio id="audio7" controls src="compo7.mp3"></audio>
-    <button class="download-btn" onclick="promptDownloadPassword('compo7.mp3')">Télécharger compo7.mp3</button>
+    <!-- Piste 7 -->
+    <div class="track-container">
+      <div class="track-title">Composition 7</div>
+      <audio controls controlsList="nodownload" src="compo7.mp3"></audio>
+      <button class="download-btn" onclick="promptDownloadPassword('compo7.mp3')">📥 Télécharger compo7.mp3</button>
+    </div>
 
-    <audio id="audio8" controls src="compo8.mp3"></audio>
-    <button class="download-btn" onclick="promptDownloadPassword('compo8.mp3')">Télécharger compo8.mp3</button>
+    <!-- Piste 8 -->
+    <div class="track-container">
+      <div class="track-title">Composition 8</div>
+      <audio controls controlsList="nodownload" src="compo8.mp3"></audio>
+      <button class="download-btn" onclick="promptDownloadPassword('compo8.mp3')">📥 Télécharger compo8.mp3</button>
+    </div>
 
-    <audio id="audio9" controls src="compo5.mp3"></audio>
-    <button class="download-btn" onclick="promptDownloadPassword('compo5.mp3')">Télécharger compo5.mp3</button>
+    <!-- Piste 9 -->
+    <div class="track-container">
+      <div class="track-title">Composition 5</div>
+      <audio controls controlsList="nodownload" src="compo5.mp3"></audio>
+      <button class="download-btn" onclick="promptDownloadPassword('compo5.mp3')">📥 Télécharger compo5.mp3</button>
+    </div>
 
-    <audio id="audio10" controls src="compo10.mp3"></audio>
-    <button class="download-btn" onclick="promptDownloadPassword('compo10.mp3')">Télécharger compo10.mp3</button>
+    <!-- Piste 10 -->
+    <div class="track-container">
+      <div class="track-title">Composition 10</div>
+      <audio controls controlsList="nodownload" src="compo10.mp3"></audio>
+      <button class="download-btn" onclick="promptDownloadPassword('compo10.mp3')">📥 Télécharger compo10.mp3</button>
+    </div>
   </div>
 
   <!-- Zone mot de passe - PREMIER NIVEAU (accès à la page) -->
@@ -261,8 +348,8 @@
       link.click();
       document.body.removeChild(link);
       
-      // Optionnel : message de confirmation
-      alert(`Téléchargement de ${filename} autorisé !`);
+      // Message de confirmation
+      alert(`✅ Téléchargement de ${filename} autorisé !`);
     }
 
     // Permettre de valider avec la touche Entrée
@@ -274,6 +361,11 @@
           checkPassword();
         }
       }
+    });
+
+    // Désactiver le clic droit sur les audios (protection supplémentaire)
+    document.querySelectorAll('audio').forEach(audio => {
+      audio.addEventListener('contextmenu', (e) => e.preventDefault());
     });
   </script>
 
