@@ -32,14 +32,14 @@
     audio { margin:30px auto; display:block; width:90%; max-width:500px; border-radius:50px; box-shadow:0 0 20px rgba(255,105,180,0.3); transition: transform 0.3s; }
     audio:hover { transform: scale(1.03); }
 
-    /* Conteneur flou */
+    /* Conteneur flou - premier niveau */
     #blur-container {
       filter: blur(8px);
       pointer-events: none;
       transition: filter 0.5s ease;
     }
 
-    /* Zone mot de passe */
+    /* Zone mot de passe - premier niveau */
     #password-container {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -52,7 +52,20 @@
       color: white;
     }
 
-    #password-container input {
+    /* Zone mot de passe téléchargement - deuxième niveau */
+    #download-password-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.95);
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+      color: white;
+    }
+
+    .password-input {
       padding: 10px;
       font-size: 1em;
       border-radius: 5px;
@@ -60,7 +73,7 @@
       margin-right: 10px;
     }
 
-    #password-container button {
+    .password-button {
       padding: 10px 15px;
       font-size: 1em;
       border: none;
@@ -70,7 +83,7 @@
       color: white;
     }
 
-    #error { color:red; margin-top:10px; display:none; }
+    #error, #download-error { color: red; margin-top: 10px; display: none; }
 
     /* Effet cadenas */
     .lock {
@@ -82,6 +95,32 @@
     @keyframes lock-bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
+    }
+
+    /* Style pour le bouton de téléchargement */
+    .download-btn {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px auto 15px;
+      display: block;
+      font-size: 0.9em;
+    }
+
+    .download-btn:hover {
+      background: #45a049;
+    }
+
+    /* Message d'information */
+    .info-message {
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 5px;
+      margin: 20px auto;
+      max-width: 600px;
     }
   </style>
 
@@ -108,33 +147,73 @@
       <div class="note">♭</div>
     </div>
 
-    <audio controls src="compo3.mp3"></audio>
-    <audio controls src="compo2.mp3"></audio>
-    <audio controls src="compo1.mp3"></audio>
-    <audio controls src="compo4.mp3"></audio>
-    <audio controls src="compo9.mp3"></audio>
-    <audio controls src="compo6.mp3"></audio>
-    <audio controls src="compo7.mp3"></audio>
-    <audio controls src="compo8.mp3"></audio>
-    <audio controls src="compo5.mp3"></audio>
-    <audio controls src="compo10.mp3"></audio>
+    <div class="info-message">
+      <p>🎵 Vous avez accès aux compositions. Pour télécharger un fichier, cliquez sur le bouton correspondant et entrez le code de téléchargement.</p>
+    </div>
+
+    <!-- Les fichiers audio avec leurs boutons de téléchargement -->
+    <audio id="audio1" controls src="compo3.mp3"></audio>
+    <button class="download-btn" onclick="promptDownloadPassword('compo3.mp3')">Télécharger compo3.mp3</button>
+
+    <audio id="audio2" controls src="compo2.mp3"></audio>
+    <button class="download-btn" onclick="promptDownloadPassword('compo2.mp3')">Télécharger compo2.mp3</button>
+
+    <audio id="audio3" controls src="compo1.mp3"></audio>
+    <button class="download-btn" onclick="promptDownloadPassword('compo1.mp3')">Télécharger compo1.mp3</button>
+
+    <audio id="audio4" controls src="compo4.mp3"></audio>
+    <button class="download-btn" onclick="promptDownloadPassword('compo4.mp3')">Télécharger compo4.mp3</button>
+
+    <audio id="audio5" controls src="compo9.mp3"></audio>
+    <button class="download-btn" onclick="promptDownloadPassword('compo9.mp3')">Télécharger compo9.mp3</button>
+
+    <audio id="audio6" controls src="compo6.mp3"></audio>
+    <button class="download-btn" onclick="promptDownloadPassword('compo6.mp3')">Télécharger compo6.mp3</button>
+
+    <audio id="audio7" controls src="compo7.mp3"></audio>
+    <button class="download-btn" onclick="promptDownloadPassword('compo7.mp3')">Télécharger compo7.mp3</button>
+
+    <audio id="audio8" controls src="compo8.mp3"></audio>
+    <button class="download-btn" onclick="promptDownloadPassword('compo8.mp3')">Télécharger compo8.mp3</button>
+
+    <audio id="audio9" controls src="compo5.mp3"></audio>
+    <button class="download-btn" onclick="promptDownloadPassword('compo5.mp3')">Télécharger compo5.mp3</button>
+
+    <audio id="audio10" controls src="compo10.mp3"></audio>
+    <button class="download-btn" onclick="promptDownloadPassword('compo10.mp3')">Télécharger compo10.mp3</button>
   </div>
 
-  <!-- Zone mot de passe -->
+  <!-- Zone mot de passe - PREMIER NIVEAU (accès à la page) -->
   <div id="password-container">
     <div class="lock">🔒</div>
-    <p>Code 🎼 :</p>
+    <p>Code d'accès aux compositions 🎼 :</p>
     <div>
-      <input type="password" id="password" placeholder="Entrez le code">
-      <button onclick="checkPassword()">Valider</button>
+      <input type="password" id="password" class="password-input" placeholder="Entrez le code">
+      <button onclick="checkPassword()" class="password-button">Valider</button>
     </div>
     <p id="error">Code incorrect !</p>
   </div>
 
+  <!-- Zone mot de passe - DEUXIÈME NIVEAU (téléchargement) -->
+  <div id="download-password-overlay">
+    <div class="lock">🔒</div>
+    <p>Code de téléchargement requis ⬇️ :</p>
+    <div>
+      <input type="password" id="download-password" class="password-input" placeholder="Entrez le code">
+      <button onclick="verifyDownloadPassword()" class="password-button">Valider</button>
+      <button onclick="cancelDownload()" class="password-button" style="background: #666;">Annuler</button>
+    </div>
+    <p id="download-error">Code incorrect !</p>
+  </div>
+
   <script>
+    // Variable pour stocker le fichier à télécharger
+    let fileToDownload = "";
+
+    // PREMIER NIVEAU - Mot de passe pour accéder à la page
     function checkPassword() {
       const input = document.getElementById("password").value;
-      const correct = "Louise 64!"; // Mot de passe direct
+      const correct = "Louise 64!"; // Mot de passe pour accéder à la page
       if(input === correct) {
         document.getElementById("blur-container").style.filter = "none";
         document.getElementById("blur-container").style.pointerEvents = "auto";
@@ -143,9 +222,60 @@
         document.getElementById("error").style.display = "block";
       }
     }
+
+    // DEUXIÈME NIVEAU - Demander le mot de passe pour télécharger
+    function promptDownloadPassword(filename) {
+      fileToDownload = filename;
+      document.getElementById("download-password").value = ""; // Effacer le champ
+      document.getElementById("download-error").style.display = "none";
+      document.getElementById("download-password-overlay").style.display = "flex";
+    }
+
+    // Vérifier le mot de passe de téléchargement
+    function verifyDownloadPassword() {
+      const input = document.getElementById("download-password").value;
+      const correct = "Youyou 64!"; // Mot de passe pour télécharger
+      
+      if(input === correct) {
+        // Mot de passe correct - procéder au téléchargement
+        downloadFile(fileToDownload);
+        document.getElementById("download-password-overlay").style.display = "none";
+      } else {
+        document.getElementById("download-error").style.display = "block";
+      }
+    }
+
+    // Annuler le téléchargement
+    function cancelDownload() {
+      document.getElementById("download-password-overlay").style.display = "none";
+      fileToDownload = "";
+    }
+
+    // Fonction pour télécharger le fichier
+    function downloadFile(filename) {
+      // Créer un lien temporaire pour le téléchargement
+      const link = document.createElement('a');
+      link.href = filename;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Optionnel : message de confirmation
+      alert(`Téléchargement de ${filename} autorisé !`);
+    }
+
+    // Permettre de valider avec la touche Entrée
+    document.addEventListener('keypress', function(e) {
+      if(e.key === 'Enter') {
+        if(document.getElementById("download-password-overlay").style.display === "flex") {
+          verifyDownloadPassword();
+        } else if(document.getElementById("password-container").style.display !== "none") {
+          checkPassword();
+        }
+      }
+    });
   </script>
 
 </body>
 </html>
-
-
