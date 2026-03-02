@@ -29,29 +29,46 @@
 
     @keyframes float { 0% { transform: translateY(0) rotate(0deg); opacity:0; } 20% { opacity:1; } 100% { transform: translateY(-100px) rotate(360deg); opacity:0; } }
 
-    audio { 
-      margin: 15px auto 5px; 
-      display: block; 
-      width: 90%; 
-      max-width: 500px; 
-      border-radius: 50px; 
-      box-shadow: 0 0 20px rgba(255,105,180,0.3); 
-      transition: transform 0.3s; 
+    /* Style pour cacher complètement les contrôles de téléchargement natifs */
+    audio {
+      margin: 15px auto 5px;
+      display: block;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 50px;
+      box-shadow: 0 0 20px rgba(255,105,180,0.3);
+      transition: transform 0.3s;
     }
     
     audio:hover { transform: scale(1.03); }
 
-    /* Cacher le menu téléchargement du lecteur natif */
-    audio::-internal-media-controls-download-button {
-      display: none;
-    }
-    
+    /* Cacher tous les boutons de téléchargement natifs sur tous les navigateurs */
     audio::-webkit-media-controls-enclosure {
       overflow: hidden;
     }
     
     audio::-webkit-media-controls-panel {
-      width: calc(100% + 30px); /* Ajustement pour cacher le bouton */
+      width: calc(100% + 40px);
+    }
+    
+    /* Cacher le menu contextuel du lecteur */
+    audio::-internal-media-controls-download-button {
+      display: none !important;
+    }
+    
+    audio::-webkit-media-controls-download-button {
+      display: none !important;
+    }
+    
+    audio::-webkit-media-controls-timeline {
+      margin-right: 0;
+    }
+    
+    /* Pour Firefox */
+    @-moz-document url-prefix() {
+      audio {
+        background: transparent;
+      }
     }
 
     /* Conteneur flou - premier niveau */
@@ -140,15 +157,17 @@
       box-shadow: 0 6px 20px rgba(255,105,180,0.6);
     }
 
-    /* Message d'information */
-    .info-message {
+    /* Message d'information personnalisé */
+    .welcome-message {
       background: rgba(255,255,255,0.1);
-      padding: 15px;
-      border-radius: 10px;
+      padding: 20px;
+      border-radius: 15px;
       margin: 20px auto;
       max-width: 600px;
       backdrop-filter: blur(5px);
       border: 1px solid rgba(255,255,255,0.2);
+      font-size: 1.3em;
+      line-height: 1.6;
     }
 
     /* Conteneur pour chaque morceau */
@@ -167,6 +186,13 @@
       margin-bottom: 5px;
       color: #ff69b4;
       font-weight: bold;
+    }
+
+    /* Emoji portée de musique */
+    .music-emoji {
+      font-size: 2em;
+      margin-left: 10px;
+      vertical-align: middle;
     }
   </style>
 
@@ -193,10 +219,9 @@
       <div class="note">♭</div>
     </div>
 
-    <div class="info-message">
-      <p>🎵 Vous avez accès aux compositions.</p>
-      <p>⬇️ Pour télécharger un morceau, cliquez sur le bouton "Télécharger" correspondant et entrez le code.</p>
-      <p><small>(Le bouton de téléchargement natif du lecteur a été désactivé)</small></p>
+    <!-- Message personnalisé -->
+    <div class="welcome-message">
+      🎵 Heyyy, voici quelques compos faites au piano... 🎵
     </div>
 
     <!-- Piste 1 -->
@@ -273,7 +298,7 @@
   <!-- Zone mot de passe - PREMIER NIVEAU (accès à la page) -->
   <div id="password-container">
     <div class="lock">🔒</div>
-    <p>Code d'accès aux compositions 🎼 :</p>
+    <p>Mot de passe : <span class="music-emoji">🎼</span></p>
     <div>
       <input type="password" id="password" class="password-input" placeholder="Entrez le code">
       <button onclick="checkPassword()" class="password-button">Valider</button>
@@ -366,6 +391,18 @@
     // Désactiver le clic droit sur les audios (protection supplémentaire)
     document.querySelectorAll('audio').forEach(audio => {
       audio.addEventListener('contextmenu', (e) => e.preventDefault());
+      
+      // Empêcher le téléchargement via le navigateur
+      audio.addEventListener('dragstart', (e) => e.preventDefault());
+      audio.addEventListener('selectstart', (e) => e.preventDefault());
+    });
+
+    // Désactiver le raccourci clavier de téléchargement (Ctrl+S)
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        return false;
+      }
     });
   </script>
 
