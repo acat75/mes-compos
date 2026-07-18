@@ -271,18 +271,35 @@
       overflow: visible;
     }
 
-    /* Smileys aux 4 coins du cadre */
+    /* Smileys aux 4 coins - agrandis, plus éparpillés et inclinés */
     .corner-symbol {
       position: absolute;
-      font-size: 2.2rem;
-      opacity: 0.6;
-      filter: drop-shadow(0 0 12px rgba(255,200,230,0.2));
+      font-size: 3.4rem;
+      opacity: 0.55;
+      filter: drop-shadow(0 0 18px rgba(255,200,230,0.15));
       pointer-events: none;
+      transition: transform 0.3s;
     }
-    .corner-symbol.tl { top: -18px; left: -18px; transform: rotate(-15deg) scale(1.2); }
-    .corner-symbol.tr { top: -18px; right: -18px; transform: rotate(20deg) scale(0.9); }
-    .corner-symbol.bl { bottom: -18px; left: -18px; transform: rotate(10deg) scale(1.1); }
-    .corner-symbol.br { bottom: -18px; right: -18px; transform: rotate(-12deg) scale(1.3); }
+    .corner-symbol.tl {
+      top: -32px;
+      left: -28px;
+      transform: rotate(-22deg) scale(1.1);
+    }
+    .corner-symbol.tr {
+      top: -30px;
+      right: -32px;
+      transform: rotate(28deg) scale(1.2);
+    }
+    .corner-symbol.bl {
+      bottom: -34px;
+      left: -26px;
+      transform: rotate(18deg) scale(1.15);
+    }
+    .corner-symbol.br {
+      bottom: -28px;
+      right: -30px;
+      transform: rotate(-20deg) scale(1.25);
+    }
 
     .lock-icon {
       font-size: 3.6rem;
@@ -376,11 +393,11 @@
       .glass-wrapper { padding: 20px 12px; border-radius: 32px; }
       .note-float { font-size: 2.2rem !important; }
       .password-box { padding: 30px 20px; }
-      .corner-symbol { font-size: 1.6rem; }
-      .corner-symbol.tl { top: -12px; left: -12px; }
-      .corner-symbol.tr { top: -12px; right: -12px; }
-      .corner-symbol.bl { bottom: -12px; left: -12px; }
-      .corner-symbol.br { bottom: -12px; right: -12px; }
+      .corner-symbol { font-size: 2.6rem; }
+      .corner-symbol.tl { top: -22px; left: -18px; }
+      .corner-symbol.tr { top: -22px; right: -20px; }
+      .corner-symbol.bl { bottom: -24px; left: -16px; }
+      .corner-symbol.br { bottom: -20px; right: -18px; }
       .copyright { left: 16px; bottom: 12px; font-size: 0.55rem; }
       .tracks-grid { grid-template-columns: 1fr; }
     }
@@ -390,6 +407,11 @@
       .category-icon { font-size: 2rem; }
       .category-name { font-size: 1rem; }
       .password-input { width: 60%; font-size: 0.9rem; }
+      .corner-symbol { font-size: 2.2rem; }
+      .corner-symbol.tl { top: -16px; left: -12px; }
+      .corner-symbol.tr { top: -16px; right: -14px; }
+      .corner-symbol.bl { bottom: -18px; left: -10px; }
+      .corner-symbol.br { bottom: -14px; right: -12px; }
     }
   </style>
 </head>
@@ -424,7 +446,7 @@
         <div class="category-name">MPC Beats</div>
       </div>
       <div class="category-card" data-category="guitare">
-        <span class="category-icon">🎸</span>
+        <span class="category-icon">🪕</span>
         <div class="category-name">Guitare</div>
       </div>
       <div class="category-card" data-category="covers">
@@ -442,9 +464,9 @@
   <!-- OVERLAY MOT DE PASSE (premier niveau) -->
   <div class="password-overlay" id="passwordOverlay">
     <div class="password-box">
-      <!-- Smileys aux 4 coins -->
+      <!-- Smileys aux 4 coins - agrandis, plus éparpillés et inclinés -->
       <span class="corner-symbol tl">🎹</span>
-      <span class="corner-symbol tr">🎸</span>
+      <span class="corner-symbol tr">🪕</span>
       <span class="corner-symbol bl">🎛️</span>
       <span class="corner-symbol br">♫</span>
 
@@ -462,7 +484,7 @@
   <div class="download-overlay" id="downloadOverlay">
     <div class="password-box" style="background: rgba(10, 6, 25, 0.85);">
       <span class="corner-symbol tl">🎹</span>
-      <span class="corner-symbol tr">🎸</span>
+      <span class="corner-symbol tr">🪕</span>
       <span class="corner-symbol bl">🎛️</span>
       <span class="corner-symbol br">♫</span>
       <div class="lock-icon">🔒</div>
