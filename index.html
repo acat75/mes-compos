@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mes Compos</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -12,15 +14,15 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Inter', sans-serif;
       min-height: 100vh;
       color: white;
-      background: linear-gradient(135deg, #0b0c2a, #1c1f4a, #3a2c5b, #5c3d70);
+      background: radial-gradient(ellipse at 20% 50%, #0b0c2a, #1c1f4a, #2a1f4a, #0b0c2a);
       position: relative;
       overflow-x: hidden;
     }
 
-    /* Notes de musique flottantes */
+    /* ===== NOTES FLOTTANTES ===== */
     .floating-notes {
       position: fixed;
       top: 0;
@@ -34,108 +36,250 @@
 
     .floating-note {
       position: absolute;
-      font-size: 30px;
-      animation: floatNote 15s infinite linear;
-      opacity: 0.15;
+      animation: floatNote 20s infinite linear;
+      opacity: 0.08;
+      font-family: 'Georgia', serif;
     }
 
-    .floating-note:nth-child(1) { left: 5%; animation-delay: 0s; font-size: 40px; }
-    .floating-note:nth-child(2) { left: 15%; animation-delay: 2s; font-size: 25px; }
-    .floating-note:nth-child(3) { left: 25%; animation-delay: 4s; font-size: 50px; }
-    .floating-note:nth-child(4) { left: 35%; animation-delay: 1s; font-size: 30px; }
-    .floating-note:nth-child(5) { left: 45%; animation-delay: 3s; font-size: 45px; }
-    .floating-note:nth-child(6) { left: 55%; animation-delay: 5s; font-size: 35px; }
-    .floating-note:nth-child(7) { left: 65%; animation-delay: 2s; font-size: 55px; }
-    .floating-note:nth-child(8) { left: 75%; animation-delay: 4s; font-size: 28px; }
-    .floating-note:nth-child(9) { left: 85%; animation-delay: 1s; font-size: 48px; }
-    .floating-note:nth-child(10) { left: 92%; animation-delay: 3s; font-size: 32px; }
-    .floating-note:nth-child(11) { left: 10%; animation-delay: 6s; font-size: 38px; }
-    .floating-note:nth-child(12) { left: 50%; animation-delay: 7s; font-size: 42px; }
+    .floating-note:nth-child(1) { left: 2%; animation-duration: 22s; animation-delay: 0s; font-size: 65px; color: #ff69b4; transform: rotate(-15deg); }
+    .floating-note:nth-child(2) { left: 8%; animation-duration: 18s; animation-delay: 3s; font-size: 40px; color: #9370db; transform: rotate(10deg); }
+    .floating-note:nth-child(3) { left: 15%; animation-duration: 25s; animation-delay: 5s; font-size: 80px; color: #87cefa; transform: rotate(-8deg); }
+    .floating-note:nth-child(4) { left: 22%; animation-duration: 20s; animation-delay: 7s; font-size: 35px; color: #98fb98; transform: rotate(20deg); }
+    .floating-note:nth-child(5) { left: 30%; animation-duration: 23s; animation-delay: 2s; font-size: 70px; color: #ffa07a; transform: rotate(-25deg); }
+    .floating-note:nth-child(6) { left: 38%; animation-duration: 19s; animation-delay: 9s; font-size: 45px; color: #ff69b4; transform: rotate(15deg); }
+    .floating-note:nth-child(7) { left: 45%; animation-duration: 26s; animation-delay: 4s; font-size: 90px; color: #9370db; transform: rotate(-10deg); }
+    .floating-note:nth-child(8) { left: 52%; animation-duration: 21s; animation-delay: 6s; font-size: 38px; color: #87cefa; transform: rotate(25deg); }
+    .floating-note:nth-child(9) { left: 60%; animation-duration: 24s; animation-delay: 1s; font-size: 55px; color: #98fb98; transform: rotate(-20deg); }
+    .floating-note:nth-child(10) { left: 68%; animation-duration: 17s; animation-delay: 8s; font-size: 75px; color: #ffa07a; transform: rotate(12deg); }
+    .floating-note:nth-child(11) { left: 75%; animation-duration: 22s; animation-delay: 10s; font-size: 42px; color: #ff69b4; transform: rotate(-18deg); }
+    .floating-note:nth-child(12) { left: 82%; animation-duration: 20s; animation-delay: 3s; font-size: 60px; color: #9370db; transform: rotate(8deg); }
+    .floating-note:nth-child(13) { left: 90%; animation-duration: 24s; animation-delay: 7s; font-size: 50px; color: #87cefa; transform: rotate(-12deg); }
+    .floating-note:nth-child(14) { left: 96%; animation-duration: 19s; animation-delay: 5s; font-size: 35px; color: #98fb98; transform: rotate(18deg); }
+    .floating-note:nth-child(15) { left: 12%; animation-duration: 27s; animation-delay: 11s; font-size: 45px; color: #ffa07a; transform: rotate(-22deg); }
+    .floating-note:nth-child(16) { left: 48%; animation-duration: 21s; animation-delay: 2s; font-size: 70px; color: #ff69b4; transform: rotate(14deg); }
+    .floating-note:nth-child(17) { left: 88%; animation-duration: 23s; animation-delay: 6s; font-size: 55px; color: #9370db; transform: rotate(-16deg); }
+    .floating-note:nth-child(18) { left: 35%; animation-duration: 25s; animation-delay: 9s; font-size: 40px; color: #87cefa; transform: rotate(22deg); }
+    .floating-note:nth-child(19) { left: 72%; animation-duration: 18s; animation-delay: 4s; font-size: 65px; color: #98fb98; transform: rotate(-8deg); }
+    .floating-note:nth-child(20) { left: 55%; animation-duration: 22s; animation-delay: 8s; font-size: 48px; color: #ffa07a; transform: rotate(10deg); }
 
     @keyframes floatNote {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      10% { opacity: 0.15; }
-      90% { opacity: 0.15; }
-      100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+      0% { transform: translateY(110vh) rotate(0deg) scale(0.8); opacity: 0; }
+      10% { opacity: 0.08; }
+      90% { opacity: 0.08; }
+      100% { transform: translateY(-10vh) rotate(720deg) scale(1.2); opacity: 0; }
     }
 
-    /* Header */
-    .header {
-      text-align: center;
-      padding: 40px 20px 20px;
-      position: relative;
-      z-index: 1;
+    /* ===== PAGE MOT DE PASSE ===== */
+    #password-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(11,12,42,0.97), rgba(28,31,74,0.99));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(20px);
     }
 
-    .header h1 {
-      font-size: 3.5em;
+    #password-overlay .lock-icon {
+      font-size: 80px;
+      margin-bottom: 10px;
+      animation: lockFloat 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 40px rgba(255,105,180,0.3));
+    }
+
+    @keyframes lockFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-15px) scale(1.05); }
+    }
+
+    #password-overlay .password-label {
+      font-size: 2.2em;
+      font-family: 'Playfair Display', serif;
       font-weight: 300;
-      letter-spacing: 5px;
-      text-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
-      background: linear-gradient(45deg, #ff69b4, #9370db, #87cefa);
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, #ff69b4, #9370db, #87cefa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .header .subtitle {
+    #password-overlay .password-label .clef {
       font-size: 1.1em;
-      opacity: 0.6;
-      margin-top: 5px;
-      letter-spacing: 3px;
+      -webkit-text-fill-color: initial;
+      color: #ff69b4;
+    }
+
+    #password-overlay input {
+      padding: 14px 25px;
+      font-size: 1.1em;
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      width: 300px;
+      text-align: center;
+      transition: all 0.4s;
+      letter-spacing: 1px;
+      backdrop-filter: blur(10px);
+    }
+
+    #password-overlay input:focus {
+      outline: none;
+      border-color: #ff69b4;
+      box-shadow: 0 0 50px rgba(255,105,180,0.15);
+      transform: scale(1.02);
+    }
+
+    #password-overlay input::placeholder {
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    #password-overlay .password-btn {
+      padding: 14px 45px;
+      margin-top: 18px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #ff69b4, #9370db);
+      color: white;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s;
+      letter-spacing: 2px;
+      box-shadow: 0 5px 30px rgba(255,105,180,0.3);
+    }
+
+    #password-overlay .password-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 45px rgba(255,105,180,0.5);
+    }
+
+    #password-error {
+      color: #ff6b6b;
+      margin-top: 18px;
+      display: none;
+      font-size: 0.95em;
+      letter-spacing: 1px;
+      background: rgba(255,0,0,0.1);
+      padding: 8px 25px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,0,0,0.2);
+    }
+
+    /* ===== CONTENU PRINCIPAL ===== */
+    #main-content {
+      display: none;
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      text-align: center;
+      padding: 50px 20px 30px;
+      position: relative;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.2em;
+      font-weight: 700;
+      letter-spacing: 8px;
+      background: linear-gradient(135deg, #ff69b4 0%, #9370db 30%, #87cefa 60%, #ff69b4 100%);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s ease-in-out infinite;
+      text-shadow: none;
+      filter: drop-shadow(0 0 40px rgba(255,105,180,0.15));
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .header h1 .maj {
+      font-size: 1.3em;
+      display: inline-block;
+      transform: scaleY(1.1);
+    }
+
+    .header .subtitle {
+      font-size: 1em;
+      opacity: 0.4;
+      margin-top: 8px;
+      letter-spacing: 8px;
+      font-weight: 300;
       -webkit-text-fill-color: white;
     }
 
-    /* Navigation des catégories */
+    .header .ornament {
+      margin: 15px 0;
+      font-size: 1.2em;
+      opacity: 0.2;
+      letter-spacing: 15px;
+    }
+
+    /* ===== NAVIGATION ===== */
     .category-nav {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
       flex-wrap: wrap;
-      padding: 20px;
+      padding: 15px 20px 25px;
       position: relative;
-      z-index: 1;
     }
 
     .category-btn {
-      padding: 12px 30px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 28px;
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 50px;
-      background: rgba(255, 255, 255, 0.05);
-      color: white;
+      background: rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.5);
       cursor: pointer;
-      font-size: 1em;
-      transition: all 0.3s;
+      font-size: 0.9em;
+      transition: all 0.4s;
       backdrop-filter: blur(10px);
-      font-weight: 500;
+      font-weight: 400;
+      letter-spacing: 1px;
+      font-family: 'Inter', sans-serif;
     }
 
     .category-btn:hover {
-      background: rgba(255, 105, 180, 0.2);
-      border-color: #ff69b4;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border-color: rgba(255,255,255,0.15);
       transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(255, 105, 180, 0.2);
     }
 
     .category-btn.active {
-      background: rgba(255, 105, 180, 0.3);
-      border-color: #ff69b4;
-      box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
+      background: linear-gradient(135deg, rgba(255,105,180,0.2), rgba(147,112,219,0.2));
+      border-color: rgba(255,105,180,0.3);
+      color: white;
+      box-shadow: 0 0 40px rgba(255,105,180,0.05);
     }
 
-    /* Conteneur principal */
+    /* ===== CONTENU ===== */
     .content {
       max-width: 900px;
       margin: 0 auto;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
+      padding: 10px 20px 40px;
     }
 
-    /* Catégories de compositions */
     .category-section {
       display: none;
-      animation: fadeIn 0.5s ease;
+      animation: fadeIn 0.6s ease;
     }
 
     .category-section.active {
@@ -143,335 +287,334 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(25px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .category-title {
+      font-family: 'Playfair Display', serif;
       font-size: 2em;
       text-align: center;
       margin-bottom: 30px;
-      color: #ff69b4;
-      text-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+      font-weight: 400;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,0.7);
     }
 
-    /* Track container */
+    .category-title .accent {
+      color: #ff69b4;
+    }
+
+    /* ===== TRACKS ===== */
     .track-container {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 20px;
-      margin: 20px auto;
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      padding: 18px 22px 20px;
+      margin: 16px auto;
       max-width: 600px;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255,105,180,0.03), rgba(147,112,219,0.03));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .track-container:hover::before {
+      opacity: 1;
     }
 
     .track-container:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-      border-color: rgba(255, 105, 180, 0.2);
+      transform: translateY(-4px);
+      border-color: rgba(255,105,180,0.15);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
     }
 
     .track-title {
-      font-size: 1.2em;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15em;
       margin-bottom: 10px;
       color: #fff;
-      font-weight: 500;
+      font-weight: 400;
+      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
     }
 
     .track-title .icon {
-      font-size: 1.3em;
+      font-size: 1.1em;
+      opacity: 0.6;
+    }
+
+    .track-title .number {
+      font-size: 0.7em;
+      opacity: 0.2;
+      font-weight: 300;
+      margin-left: auto;
+      font-family: 'Inter', sans-serif;
     }
 
     .track-container audio {
       width: 100%;
-      margin: 10px 0;
+      margin: 8px 0 12px;
       border-radius: 50px;
+      position: relative;
+      z-index: 1;
     }
 
     .track-container audio::-webkit-media-controls-enclosure {
       overflow: hidden;
+      border-radius: 50px;
     }
     
     .track-container audio::-webkit-media-controls-panel {
       width: calc(100% + 40px);
+      background: rgba(0,0,0,0.3);
     }
     
     .track-container audio::-webkit-media-controls-download-button {
       display: none !important;
     }
 
+    .track-container audio::-webkit-media-controls-timeline {
+      margin-right: 0;
+    }
+
     .download-btn {
-      background: linear-gradient(45deg, #ff69b4, #9370db);
-      color: white;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 25px;
+      background: linear-gradient(135deg, rgba(255,105,180,0.15), rgba(147,112,219,0.15));
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 7px 22px;
+      border-radius: 50px;
       cursor: pointer;
-      font-size: 0.9em;
-      font-weight: 500;
-      transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+      font-size: 0.85em;
+      font-weight: 400;
+      transition: all 0.4s;
+      position: relative;
+      z-index: 1;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
     }
 
     .download-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 25px rgba(255, 105, 180, 0.5);
+      background: linear-gradient(135deg, #ff69b4, #9370db);
+      border-color: transparent;
+      color: white;
+      transform: scale(1.03);
+      box-shadow: 0 5px 25px rgba(255,105,180,0.3);
     }
 
-    /* Formulaire d'ajout */
-    .add-form {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 25px;
-      margin: 30px auto;
-      max-width: 600px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .add-form h3 {
-      color: #ff69b4;
-      margin-bottom: 15px;
+    /* ===== MESSAGE VIDE ===== */
+    .empty-message {
       text-align: center;
+      opacity: 0.2;
+      padding: 50px 20px;
+      font-size: 1.1em;
+      letter-spacing: 2px;
+      font-weight: 300;
     }
 
-    .add-form input, .add-form select {
-      width: 100%;
-      padding: 10px 15px;
-      margin: 8px 0;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      color: white;
-      font-size: 1em;
-      transition: all 0.3s;
-    }
-
-    .add-form input:focus, .add-form select:focus {
-      outline: none;
-      border-color: #ff69b4;
-      box-shadow: 0 0 20px rgba(255, 105, 180, 0.1);
-    }
-
-    .add-form input::placeholder {
-      color: rgba(255, 255, 255, 0.3);
-    }
-
-    .add-form select option {
-      background: #1c1f4a;
-      color: white;
-    }
-
-    .add-form button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(45deg, #ff69b4, #9370db);
-      color: white;
-      font-size: 1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .add-form button:hover {
-      transform: scale(1.02);
-      box-shadow: 0 5px 30px rgba(255, 105, 180, 0.3);
-    }
-
-    .generated-code {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 15px;
-      border-radius: 10px;
-      margin: 15px 0;
-      font-family: monospace;
-      font-size: 0.85em;
-      white-space: pre-wrap;
-      word-break: break-all;
-      max-height: 200px;
-      overflow-y: auto;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #87cefa;
-    }
-
-    .copy-btn {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 8px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s;
-      margin-top: 10px;
-    }
-
-    .copy-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Footer */
+    /* ===== FOOTER ===== */
     .footer {
       text-align: center;
-      padding: 30px;
-      opacity: 0.3;
-      font-size: 0.9em;
-      position: relative;
-      z-index: 1;
+      padding: 40px 20px 30px;
+      opacity: 0.15;
+      font-size: 0.8em;
+      letter-spacing: 3px;
+      font-weight: 300;
     }
 
-    /* Overlay mot de passe */
-    #password-overlay {
+    /* ===== OVERLAY TÉLÉCHARGEMENT ===== */
+    #download-overlay {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.92);
-      display: flex;
+      background: rgba(0,0,0,0.92);
+      display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 100;
-      backdrop-filter: blur(10px);
+      z-index: 200;
+      backdrop-filter: blur(20px);
     }
 
-    #password-overlay .lock-icon {
+    #download-overlay .dl-icon {
       font-size: 60px;
+      margin-bottom: 10px;
+      animation: lockFloat 3s ease-in-out infinite;
+    }
+
+    #download-overlay .dl-label {
+      font-size: 1.3em;
+      font-weight: 300;
+      letter-spacing: 2px;
       margin-bottom: 20px;
-      animation: lockBounce 1.5s infinite;
+      opacity: 0.8;
     }
 
-    @keyframes lockBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    #password-overlay p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    #password-overlay input {
-      padding: 12px 20px;
+    #download-overlay input {
+      padding: 14px 25px;
       font-size: 1.1em;
-      border-radius: 10px;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
       color: white;
       width: 280px;
       text-align: center;
-      transition: all 0.3s;
+      transition: all 0.4s;
     }
 
-    #password-overlay input:focus {
+    #download-overlay input:focus {
       outline: none;
       border-color: #ff69b4;
-      box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
+      box-shadow: 0 0 50px rgba(255,105,180,0.15);
     }
 
-    #password-overlay button {
-      padding: 12px 30px;
-      margin-top: 15px;
+    #download-overlay .dl-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    #download-overlay .dl-btn {
+      padding: 12px 35px;
       border: none;
-      border-radius: 10px;
-      background: linear-gradient(45deg, #ff69b4, #9370db);
-      color: white;
-      font-size: 1.1em;
-      font-weight: 600;
+      border-radius: 50px;
+      font-size: 1em;
+      font-weight: 500;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.4s;
+      letter-spacing: 1px;
     }
 
-    #password-overlay button:hover {
+    #download-overlay .dl-btn.validate {
+      background: linear-gradient(135deg, #ff69b4, #9370db);
+      color: white;
+      box-shadow: 0 5px 30px rgba(255,105,180,0.3);
+    }
+
+    #download-overlay .dl-btn.validate:hover {
       transform: scale(1.05);
-      box-shadow: 0 5px 30px rgba(255, 105, 180, 0.4);
+      box-shadow: 0 8px 40px rgba(255,105,180,0.5);
     }
 
-    #password-error {
+    #download-overlay .dl-btn.cancel {
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    #download-overlay .dl-btn.cancel:hover {
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    #download-error {
       color: #ff6b6b;
-      margin-top: 15px;
+      margin-top: 18px;
       display: none;
+      font-size: 0.9em;
+      background: rgba(255,0,0,0.1);
+      padding: 8px 25px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,0,0,0.2);
     }
 
-    /* Responsive */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .header h1 { font-size: 2.5em; }
-      .category-btn { padding: 10px 20px; font-size: 0.9em; }
-      .category-nav { gap: 10px; }
-      .track-container { margin: 15px; padding: 15px; }
+      .header h1 { font-size: 2.8em; letter-spacing: 4px; }
+      .header .subtitle { letter-spacing: 4px; font-size: 0.8em; }
+      .category-btn { padding: 8px 18px; font-size: 0.8em; }
+      .track-container { margin: 12px 10px; padding: 15px; }
+      .track-title { font-size: 1em; }
+      #password-overlay .password-label { font-size: 1.6em; }
       #password-overlay input { width: 90%; }
+      .category-title { font-size: 1.5em; }
     }
 
     @media (max-width: 480px) {
-      .header h1 { font-size: 2em; }
-      .category-btn { padding: 8px 15px; font-size: 0.8em; }
-      .add-form { margin: 15px; padding: 15px; }
+      .header h1 { font-size: 2em; letter-spacing: 2px; }
+      .header .subtitle { letter-spacing: 3px; font-size: 0.7em; }
+      .category-nav { gap: 8px; padding: 10px; }
+      .category-btn { padding: 6px 14px; font-size: 0.7em; }
+      .track-container { padding: 12px; }
+      .track-title { font-size: 0.9em; }
+      #password-overlay .password-label { font-size: 1.3em; }
     }
 
-    /* Scroll personnalisé */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(45deg, #ff69b4, #9370db);
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #ff69b4;
-    }
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #ff69b4, #9370db); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ff69b4; }
   </style>
 </head>
 <body>
 
-  <!-- Notes flottantes -->
+  <!-- ===== NOTES FLOTTANTES ===== -->
   <div class="floating-notes">
     <div class="floating-note">♪</div>
     <div class="floating-note">♫</div>
     <div class="floating-note">♩</div>
     <div class="floating-note">♬</div>
     <div class="floating-note">♭</div>
+    <div class="floating-note">♯</div>
     <div class="floating-note">♪</div>
     <div class="floating-note">♫</div>
     <div class="floating-note">♩</div>
     <div class="floating-note">♬</div>
     <div class="floating-note">♭</div>
+    <div class="floating-note">♯</div>
+    <div class="floating-note">♪</div>
+    <div class="floating-note">♫</div>
+    <div class="floating-note">♩</div>
+    <div class="floating-note">♬</div>
+    <div class="floating-note">♭</div>
+    <div class="floating-note">♯</div>
     <div class="floating-note">♪</div>
     <div class="floating-note">♫</div>
   </div>
 
-  <!-- Overlay mot de passe principal -->
+  <!-- ===== OVERLAY MOT DE PASSE ===== -->
   <div id="password-overlay">
-    <div class="lock-icon">🔒</div>
-    <p>🎼 Mot de passe pour accéder aux compos</p>
-    <input type="password" id="main-password" placeholder="Entrez le code" onkeypress="if(event.key==='Enter') verifyMainPassword()">
-    <button onclick="verifyMainPassword()">Déverrouiller</button>
-    <p id="password-error">❌ Code incorrect</p>
+    <div class="lock-icon">🎵</div>
+    <div class="password-label">
+      Mot de passe <span class="clef">🎼</span>
+    </div>
+    <input type="password" id="main-password" placeholder="・ ・ ・ ・ ・ ・" onkeypress="if(event.key==='Enter') verifyMainPassword()">
+    <button class="password-btn" onclick="verifyMainPassword()">Déverrouiller</button>
+    <p id="password-error">✧ Code incorrect ✧</p>
   </div>
 
-  <!-- Contenu principal -->
-  <div id="main-content" style="display:none;">
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <div id="main-content">
 
     <div class="header">
-      <h1>🎹 Mes Compos</h1>
-      <div class="subtitle">✦ Piano · MPC Beats · Guitare · Covers ✦</div>
+      <div class="ornament">✦ ✦ ✦</div>
+      <h1>
+        <span class="maj">M</span>es <span class="maj">C</span>ompos
+      </h1>
+      <div class="subtitle">P I A N O  ✦  M P C  ✦  G U I T A R E  ✦  C O V E R S</div>
+      <div class="ornament">♩ ♪ ♫ ♬</div>
     </div>
 
-    <!-- Navigation catégories -->
+    <!-- Navigation -->
     <div class="category-nav">
       <button class="category-btn active" data-category="piano">🎹 Piano</button>
       <button class="category-btn" data-category="mpc">🎛️ MPC Beats</button>
@@ -481,283 +624,115 @@
 
     <div class="content">
 
-      <!-- Section Piano -->
+      <!-- ===== SECTION PIANO ===== -->
       <div class="category-section active" id="category-piano">
-        <h2 class="category-title">🎹 Piano</h2>
-        
+        <h2 class="category-title">🎹 <span class="accent">P</span>iano</h2>
+
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> Tourments</div>
+          <div class="track-title"><span class="icon">♬</span> Tourments <span class="number">01</span></div>
           <audio controls controlsList="nodownload" src="compo3.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo3.mp3', 'Tourments')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo3.mp3', 'Tourments')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> Étincelle</div>
+          <div class="track-title"><span class="icon">♬</span> Étincelle <span class="number">02</span></div>
           <audio controls controlsList="nodownload" src="compo2.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo2.mp3', 'Étincelle')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo2.mp3', 'Étincelle')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> Je t'oublierai</div>
+          <div class="track-title"><span class="icon">♬</span> Je t'oublierai <span class="number">03</span></div>
           <audio controls controlsList="nodownload" src="compo1.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo1.mp3', 'Je t\'oublierai')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo1.mp3', 'Je t\'oublierai')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> Envol</div>
+          <div class="track-title"><span class="icon">♬</span> Envol <span class="number">04</span></div>
           <audio controls controlsList="nodownload" src="compo4.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo4.mp3', 'Envol')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo4.mp3', 'Envol')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> Ophélie</div>
+          <div class="track-title"><span class="icon">♬</span> Ophélie <span class="number">05</span></div>
           <audio controls controlsList="nodownload" src="compo9.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo9.mp3', 'Ophélie')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo9.mp3', 'Ophélie')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> À minuit...</div>
+          <div class="track-title"><span class="icon">♬</span> À minuit... <span class="number">06</span></div>
           <audio controls controlsList="nodownload" src="compo6.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo6.mp3', 'À minuit...')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo6.mp3', 'À minuit...')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> Indépendance</div>
+          <div class="track-title"><span class="icon">♬</span> Indépendance <span class="number">07</span></div>
           <audio controls controlsList="nodownload" src="compo7.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo7.mp3', 'Indépendance')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo7.mp3', 'Indépendance')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> Moments éphémères</div>
+          <div class="track-title"><span class="icon">♬</span> Moments éphémères <span class="number">08</span></div>
           <audio controls controlsList="nodownload" src="compo8.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo8.mp3', 'Moments éphémères')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo8.mp3', 'Moments éphémères')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> Le Reveston</div>
+          <div class="track-title"><span class="icon">♬</span> Le Reveston <span class="number">09</span></div>
           <audio controls controlsList="nodownload" src="compo5.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo5.mp3', 'Le Reveston')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo5.mp3', 'Le Reveston')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> Dans le train...</div>
+          <div class="track-title"><span class="icon">♬</span> Dans le train... <span class="number">10</span></div>
           <audio controls controlsList="nodownload" src="compo10.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo10.mp3', 'Dans le train...')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo10.mp3', 'Dans le train...')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> La Prisonnière</div>
+          <div class="track-title"><span class="icon">♬</span> La Prisonnière <span class="number">11</span></div>
           <audio controls controlsList="nodownload" src="compo11.mp3"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('compo11.mp3', 'La Prisonnière')">📥 Télécharger</button>
+          <button class="download-btn" onclick="promptDownload('compo11.mp3', 'La Prisonnière')">⬇ Télécharger</button>
         </div>
       </div>
 
-      <!-- Section MPC Beats -->
+      <!-- ===== SECTION MPC BEATS ===== -->
       <div class="category-section" id="category-mpc">
-        <h2 class="category-title">🎛️ MPC Beats</h2>
-        <!-- Ici vos compositions MPC Beats -->
-        <p style="text-align:center;opacity:0.5;padding:40px;">Aucune composition MPC Beats pour le moment</p>
-      </div>
+        <h2 class="category-title">🎛️ <span class="accent">M</span>PC <span class="accent">B</span>eats</h2>
 
-      <!-- Section Guitare -->
-      <div class="category-section" id="category-guitare">
-        <h2 class="category-title">🎸 Guitare</h2>
-        <!-- Ici vos compositions Guitare -->
-        <p style="text-align:center;opacity:0.5;padding:40px;">Aucune composition Guitare pour le moment</p>
-      </div>
+        <div class="track-container">
+          <div class="track-title"><span class="icon">♩</span> Évasion <span class="number">01</span></div>
+          <audio controls controlsList="nodownload" src="Évasion.wav"></audio>
+          <button class="download-btn" onclick="promptDownload('Évasion.wav', 'Évasion')">⬇ Télécharger</button>
+        </div>
 
-      <!-- Section Covers -->
-      <div class="category-section" id="category-covers">
-        <h2 class="category-title">🎤 Covers</h2>
-        <!-- Ici vos covers -->
-        <p style="text-align:center;opacity:0.5;padding:40px;">Aucune cover pour le moment</p>
-      </div>
+        <div class="track-container">
+          <div class="track-title"><span class="icon">♩</span> Mon auberge était à la Grande-Ours <span class="number">02</span></div>
+          <audio controls controlsList="nodownload" src="Mon auberge était à la Grande-Ours.wav"></audio>
+          <button class="download-btn" onclick="promptDownload('Mon auberge était à la Grande-Ours.wav', 'Mon auberge était à la Grande-Ours')">⬇ Télécharger</button>
+        </div>
 
-      <!-- Formulaire d'ajout -->
-      <div class="add-form">
-        <h3>➕ Ajouter une composition</h3>
-        <p style="font-size:0.85em;opacity:0.6;text-align:center;margin-bottom:15px;">
-          Remplissez ce formulaire pour générer le code HTML à copier dans votre fichier
-        </p>
-        
-        <input type="text" id="new-title" placeholder="Titre de la composition">
-        <input type="text" id="new-filename" placeholder="Nom du fichier (ex: compo12.mp3)">
-        <select id="new-category">
-          <option value="piano">🎹 Piano</option>
-          <option value="mpc">🎛️ MPC Beats</option>
-          <option value="guitare">🎸 Guitare</option>
-          <option value="covers">🎤 Covers</option>
-        </select>
-        <button onclick="generateTrackCode()">🔧 Générer le code</button>
-        
-        <div id="generated-code-container" style="display:none;margin-top:15px;">
-          <div class="generated-code" id="generated-code"></div>
-          <button class="copy-btn" onclick="copyGeneratedCode()">📋 Copier le code</button>
-          <p style="font-size:0.8em;opacity:0.5;margin-top:10px;">
-            Collez ce code dans la section correspondante du fichier HTML
-          </p>
+        <div class="track-container">
+          <div class="track-title"><span class="icon">♩</span> L'appel de l'été <span class="number">03</span></div>
+          <audio controls controlsList="nodownload" src="L'appel de l'été.wav"></audio>
+          <button class="download-btn" onclick="promptDownload('L\'appel de l\'été.wav', 'L\'appel de l\'été')">⬇ Télécharger</button>
+        </div>
+
+        <div class="track-container">
+          <div class="track-title"><span class="icon">♩</span> Midnight <span class="number">04</span></div>
+          <audio controls controlsList="nodownload" src="Midnight.wav"></audio>
+          <button class="download-btn" onclick="promptDownload('Midnight.wav', 'Midnight')">⬇ Télécharger</button>
+        </div>
+
+        <div class="track-container">
+          <div class="track-title"><span class="icon">♩</span> Un zeste de liberté <span class="number">05</span></div>
+          <audio controls controlsList="nodownload" src="Un zeste de liberté.wav"></audio>
+          <button class="download-btn" onclick="promptDownload('Un zeste de liberté.wav', 'Un zeste de liberté')">⬇ Télécharger</button>
         </div>
       </div>
 
-    </div>
+      <!-- ===== SECTION GUITARE ===== -->
+      <div class="category-section" id="category-guitare">
+        <h2 class="category-title">🎸 <span class="accent">G</span>uitare</h2>
 
-    <div class="footer">
-      © 2025 Alice · Tous droits réservés
-    </div>
-  </div>
-
-  <!-- Overlay mot de passe téléchargement -->
-  <div id="download-password-overlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.95);display:none;flex-direction:column;justify-content:center;align-items:center;z-index:200;backdrop-filter:blur(10px);">
-    <div class="lock-icon">🔒</div>
-    <p>⬇️ Code de téléchargement requis</p>
-    <input type="password" id="download-password" placeholder="Entrez le code" style="padding:12px 20px;font-size:1.1em;border-radius:10px;border:2px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:white;width:280px;text-align:center;" onkeypress="if(event.key==='Enter') verifyDownloadPassword()">
-    <div style="margin-top:15px;">
-      <button onclick="verifyDownloadPassword()" style="padding:12px 30px;border:none;border-radius:10px;background:linear-gradient(45deg,#ff69b4,#9370db);color:white;font-size:1.1em;font-weight:600;cursor:pointer;transition:all 0.3s;">Valider</button>
-      <button onclick="cancelDownload()" style="padding:12px 30px;border:none;border-radius:10px;background:rgba(255,255,255,0.1);color:white;font-size:1.1em;cursor:pointer;margin-left:10px;">Annuler</button>
-    </div>
-    <p id="download-error" style="color:#ff6b6b;margin-top:15px;display:none;">❌ Code incorrect</p>
-  </div>
-
-  <script>
-    // ============ MOT DE PASSE PRINCIPAL ============
-    function verifyMainPassword() {
-      const input = document.getElementById('main-password').value;
-      // Vous pouvez changer ce mot de passe
-      const correctPassword = "Louise 64!";
-      
-      if (input === correctPassword) {
-        document.getElementById('password-overlay').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-        // Ajouter un effet de transition
-        document.getElementById('main-content').style.animation = 'fadeIn 0.8s ease';
-      } else {
-        document.getElementById('password-error').style.display = 'block';
-        setTimeout(() => {
-          document.getElementById('password-error').style.display = 'none';
-        }, 3000);
-      }
-    }
-
-    // ============ MOT DE PASSE TÉLÉCHARGEMENT ============
-    let fileToDownload = '';
-    let trackTitle = '';
-
-    function promptDownloadPassword(filename, title) {
-      fileToDownload = filename;
-      trackTitle = title;
-      document.getElementById('download-password').value = '';
-      document.getElementById('download-error').style.display = 'none';
-      document.getElementById('download-password-overlay').style.display = 'flex';
-    }
-
-    function verifyDownloadPassword() {
-      const input = document.getElementById('download-password').value;
-      // Vous pouvez changer ce mot de passe
-      const correctPassword = "Youyou 64!";
-      
-      if (input === correctPassword) {
-        downloadFile(fileToDownload, trackTitle);
-        document.getElementById('download-password-overlay').style.display = 'none';
-      } else {
-        document.getElementById('download-error').style.display = 'block';
-        setTimeout(() => {
-          document.getElementById('download-error').style.display = 'none';
-        }, 3000);
-      }
-    }
-
-    function cancelDownload() {
-      document.getElementById('download-password-overlay').style.display = 'none';
-      fileToDownload = '';
-      trackTitle = '';
-    }
-
-    function downloadFile(filename, title) {
-      const link = document.createElement('a');
-      link.href = filename;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      alert(`✅ Téléchargement de "${title}" autorisé !`);
-    }
-
-    // ============ NAVIGATION CATÉGORIES ============
-    document.querySelectorAll('.category-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        // Désactiver tous les boutons
-        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        
-        // Cacher toutes les sections
-        document.querySelectorAll('.category-section').forEach(s => s.classList.remove('active'));
-        
-        // Afficher la section correspondante
-        const category = this.dataset.category;
-        document.getElementById(`category-${category}`).classList.add('active');
-      });
-    });
-
-    // ============ GÉNÉRATEUR DE CODE ============
-    function generateTrackCode() {
-      const title = document.getElementById('new-title').value.trim();
-      const filename = document.getElementById('new-filename').value.trim();
-      const category = document.getElementById('new-category').value;
-      
-      if (!title || !filename) {
-        alert('❌ Veuillez remplir le titre et le nom du fichier');
-        return;
-      }
-      
-      // Échapper les guillemets simples dans le titre
-      const escapedTitle = title.replace(/'/g, "\\'");
-      
-      const code = `<div class="track-container">
-          <div class="track-title"><span class="icon">🎵</span> ${title}</div>
-          <audio controls controlsList="nodownload" src="${filename}"></audio>
-          <button class="download-btn" onclick="promptDownloadPassword('${filename}', '${escapedTitle}')">📥 Télécharger</button>
-        </div>`;
-      
-      document.getElementById('generated-code').textContent = code;
-      document.getElementById('generated-code-container').style.display = 'block';
-      
-      // Faire défiler vers le code généré
-      document.getElementById('generated-code-container').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    function copyGeneratedCode() {
-      const code = document.getElementById('generated-code').textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        alert('✅ Code copié dans le presse-papier !');
-      }).catch(() => {
-        // Fallback
-        const range = document.createRange();
-        range.selectNode(document.getElementById('generated-code'));
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-        document.execCommand('copy');
-        alert('✅ Code copié dans le presse-papier !');
-      });
-    }
-
-    // ============ PROTECTION ============
-    // Désactiver clic droit sur les audios
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('audio').forEach(audio => {
-        audio.addEventListener('contextmenu', (e) => e.preventDefault());
-        audio.addEventListener('dragstart', (e) => e.preventDefault());
-        audio.addEventListener('selectstart', (e) => e.preventDefault());
-      });
-    });
-
-    // Désactiver Ctrl+S
-    document.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-        e.preventDefault();
-        return false;
-      }
-    });
-  </script>
-
-</body>
-</html>
+        <div class="track-container">
+          <div class="track
