@@ -72,17 +72,7 @@
       border-radius: 100%;
       filter: blur(2px);
     }
-    .hero-sub {
-      text-align: center;
-      font-weight: 300;
-      letter-spacing: 6px;
-      color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 30px;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-      padding-bottom: 12px;
-    }
+    /* plus de sous-titre */
 
     /* Catégories */
     .category-grid {
@@ -149,10 +139,6 @@
       gap: 8px;
       margin-bottom: 6px;
       color: #f5e9ff;
-    }
-    .track-title .emoji-deco {
-      font-size: 1.2rem;
-      opacity: 0.8;
     }
 
     audio {
@@ -321,6 +307,20 @@
       color: white;
     }
 
+    /* Crédit "Tous droits réservés" en bas à gauche */
+    .copyright {
+      position: fixed;
+      bottom: 18px;
+      left: 24px;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.25);
+      letter-spacing: 1.5px;
+      z-index: 10;
+      font-weight: 300;
+      pointer-events: none;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+
     /* responsive */
     @media (max-width: 700px) {
       .hero-title { font-size: 2.8rem; letter-spacing: 3px; }
@@ -328,6 +328,7 @@
       .glass-wrapper { padding: 20px 12px; border-radius: 32px; }
       .note-float { font-size: 2.2rem !important; }
       .password-box { padding: 30px 20px; }
+      .copyright { left: 16px; bottom: 12px; font-size: 0.6rem; }
     }
   </style>
 </head>
@@ -352,11 +353,14 @@
     <div class="note-float">♩</div>
   </div>
 
+  <!-- CRÉDIT TOUS DROITS RÉSERVÉS (bas gauche) -->
+  <div class="copyright">© Alice, Tous droits réservés</div>
+
   <!-- CONTENU PRINCIPAL (flou/transparent) -->
   <div class="glass-wrapper" id="mainContent">
     <div style="text-align: center; position: relative;">
       <h1 class="hero-title">Mes Compos</h1>
-      <div class="hero-sub">✦  Alice · 2025  ✦</div>
+      <!-- sous-titre supprimé -->
     </div>
 
     <!-- Grille catégories -->
@@ -366,43 +370,40 @@
       <div class="category-card">
         <div class="category-header">🎹 Piano <span> </span></div>
 
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🌙</span> Tourments</div><audio controls controlsList="nodownload" src="compo3.mp3"></audio><button class="download-btn" onclick="promptDownload('compo3.mp3','Tourments')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">✨</span> Étincelle</div><audio controls controlsList="nodownload" src="compo2.mp3"></audio><button class="download-btn" onclick="promptDownload('compo2.mp3','Étincelle')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🍃</span> Je t'oublierai</div><audio controls controlsList="nodownload" src="compo1.mp3"></audio><button class="download-btn" onclick="promptDownload('compo1.mp3','Je t\'oublierai')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🕊️</span> Envol</div><audio controls controlsList="nodownload" src="compo4.mp3"></audio><button class="download-btn" onclick="promptDownload('compo4.mp3','Envol')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🌊</span> Ophélie</div><audio controls controlsList="nodownload" src="compo9.mp3"></audio><button class="download-btn" onclick="promptDownload('compo9.mp3','Ophélie')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🌃</span> À minuit...</div><audio controls controlsList="nodownload" src="compo6.mp3"></audio><button class="download-btn" onclick="promptDownload('compo6.mp3','À minuit...')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">⚡</span> Indépendance</div><audio controls controlsList="nodownload" src="compo7.mp3"></audio><button class="download-btn" onclick="promptDownload('compo7.mp3','Indépendance')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🫧</span> Moments éphémères</div><audio controls controlsList="nodownload" src="compo8.mp3"></audio><button class="download-btn" onclick="promptDownload('compo8.mp3','Moments éphémères')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🏛️</span> Le Reveston</div><audio controls controlsList="nodownload" src="compo5.mp3"></audio><button class="download-btn" onclick="promptDownload('compo5.mp3','Le Reveston')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🚞</span> Dans le train...</div><audio controls controlsList="nodownload" src="compo10.mp3"></audio><button class="download-btn" onclick="promptDownload('compo10.mp3','Dans le train...')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🔒</span> La Prisonnière</div><audio controls controlsList="nodownload" src="compo11.mp3"></audio><button class="download-btn" onclick="promptDownload('compo11.mp3','La Prisonnière')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Tourments</div><audio controls controlsList="nodownload" src="compo3.mp3"></audio><button class="download-btn" onclick="promptDownload('compo3.mp3','Tourments')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Étincelle</div><audio controls controlsList="nodownload" src="compo2.mp3"></audio><button class="download-btn" onclick="promptDownload('compo2.mp3','Étincelle')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Je t'oublierai</div><audio controls controlsList="nodownload" src="compo1.mp3"></audio><button class="download-btn" onclick="promptDownload('compo1.mp3','Je t\'oublierai')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Envol</div><audio controls controlsList="nodownload" src="compo4.mp3"></audio><button class="download-btn" onclick="promptDownload('compo4.mp3','Envol')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Ophélie</div><audio controls controlsList="nodownload" src="compo9.mp3"></audio><button class="download-btn" onclick="promptDownload('compo9.mp3','Ophélie')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">À minuit...</div><audio controls controlsList="nodownload" src="compo6.mp3"></audio><button class="download-btn" onclick="promptDownload('compo6.mp3','À minuit...')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Indépendance</div><audio controls controlsList="nodownload" src="compo7.mp3"></audio><button class="download-btn" onclick="promptDownload('compo7.mp3','Indépendance')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Moments éphémères</div><audio controls controlsList="nodownload" src="compo8.mp3"></audio><button class="download-btn" onclick="promptDownload('compo8.mp3','Moments éphémères')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Le Reveston</div><audio controls controlsList="nodownload" src="compo5.mp3"></audio><button class="download-btn" onclick="promptDownload('compo5.mp3','Le Reveston')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Dans le train...</div><audio controls controlsList="nodownload" src="compo10.mp3"></audio><button class="download-btn" onclick="promptDownload('compo10.mp3','Dans le train...')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">La Prisonnière</div><audio controls controlsList="nodownload" src="compo11.mp3"></audio><button class="download-btn" onclick="promptDownload('compo11.mp3','La Prisonnière')">📥 Télécharger</button></div>
       </div>
 
       <!-- 2. MPC Beats (électro) 5 titres -->
       <div class="category-card">
         <div class="category-header">🎛️ MPC Beats <span>⚡</span></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🌀</span> Évasion</div><audio controls controlsList="nodownload" src="Évasion.wav"></audio><button class="download-btn" onclick="promptDownload('Évasion.wav','Évasion')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🏔️</span> Mon auberge était à la Grande-Ours</div><audio controls controlsList="nodownload" src="Mon auberge était à la Grande-Ours.wav"></audio><button class="download-btn" onclick="promptDownload('Mon auberge était à la Grande-Ours.wav','Mon auberge était à la Grande-Ours')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">☀️</span> L'appel de l'été</div><audio controls controlsList="nodownload" src="L'appel de l'été.wav"></audio><button class="download-btn" onclick="promptDownload('L\'appel de l\'été.wav','L\'appel de l\'été')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🌙</span> Midnight</div><audio controls controlsList="nodownload" src="Midnight.wav"></audio><button class="download-btn" onclick="promptDownload('Midnight.wav','Midnight')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🕊️</span> Un zeste de liberté</div><audio controls controlsList="nodownload" src="Un zeste de liberté.wav"></audio><button class="download-btn" onclick="promptDownload('Un zeste de liberté.wav','Un zeste de liberté')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Évasion</div><audio controls controlsList="nodownload" src="Évasion.wav"></audio><button class="download-btn" onclick="promptDownload('Évasion.wav','Évasion')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Mon auberge était à la Grande-Ours</div><audio controls controlsList="nodownload" src="Mon auberge était à la Grande-Ours.wav"></audio><button class="download-btn" onclick="promptDownload('Mon auberge était à la Grande-Ours.wav','Mon auberge était à la Grande-Ours')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">L'appel de l'été</div><audio controls controlsList="nodownload" src="L'appel de l'été.wav"></audio><button class="download-btn" onclick="promptDownload('L\'appel de l\'été.wav','L\'appel de l\'été')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Midnight</div><audio controls controlsList="nodownload" src="Midnight.wav"></audio><button class="download-btn" onclick="promptDownload('Midnight.wav','Midnight')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Un zeste de liberté</div><audio controls controlsList="nodownload" src="Un zeste de liberté.wav"></audio><button class="download-btn" onclick="promptDownload('Un zeste de liberté.wav','Un zeste de liberté')">📥 Télécharger</button></div>
       </div>
 
       <!-- 3. Guitare + Covers -->
       <div class="category-card">
         <div class="category-header">🎸 Guitare & Covers <span>🎤</span></div>
         <div style="margin-bottom: 12px; color: rgba(255,255,255,0.5); font-size: 0.85rem; letter-spacing: 1px;">— Guitare —</div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🎸</span> À minuit... (guitare)</div><audio controls controlsList="nodownload" src="À minuit....mp3"></audio><button class="download-btn" onclick="promptDownload('À minuit....mp3','À minuit... (guitare)')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">À minuit... (guitare)</div><audio controls controlsList="nodownload" src="À minuit....mp3"></audio><button class="download-btn" onclick="promptDownload('À minuit....mp3','À minuit... (guitare)')">📥 Télécharger</button></div>
 
         <div style="margin: 18px 0 12px; color: rgba(255,255,255,0.5); font-size: 0.85rem; letter-spacing: 1px;">— Covers (piano) —</div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🎹</span> Numb · Linkin Park</div><audio controls controlsList="nodownload" src="Numb - Linkin Park.mp3"></audio><button class="download-btn" onclick="promptDownload('Numb - Linkin Park.mp3','Numb - Linkin Park')">📥 Télécharger</button></div>
-        <div class="track-item"><div class="track-title"><span class="emoji-deco">🎶</span> Wonderwall · Oasis</div><audio controls controlsList="nodownload" src="Wonderwall - Oasis.mp3"></audio><button class="download-btn" onclick="promptDownload('Wonderwall - Oasis.mp3','Wonderwall - Oasis')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Numb · Linkin Park</div><audio controls controlsList="nodownload" src="Numb - Linkin Park.mp3"></audio><button class="download-btn" onclick="promptDownload('Numb - Linkin Park.mp3','Numb - Linkin Park')">📥 Télécharger</button></div>
+        <div class="track-item"><div class="track-title">Wonderwall · Oasis</div><audio controls controlsList="nodownload" src="Wonderwall - Oasis.mp3"></audio><button class="download-btn" onclick="promptDownload('Wonderwall - Oasis.mp3','Wonderwall - Oasis')">📥 Télécharger</button></div>
       </div>
     </div>
-
-    <!-- petit crédit bas -->
-    <div style="text-align: center; margin-top: 40px; font-size: 0.7rem; opacity: 0.25; letter-spacing: 3px;">© Alice · 2025 · toutes les compositions sont protégées</div>
   </div>
 
   <!-- OVERLAY MOT DE PASSE (PREMIER NIVEAU) -->
@@ -506,9 +507,7 @@
       }
     });
 
-    // petit rappel : le flou est appliqué via .glass-wrapper, on le laisse visible après password
-    // mais au départ le contenu est flou (car filtré), l'overlay cache tout
-    // on s'assure que le contenu est flou au chargement
+    // au chargement : contenu flou + overlay visible
     window.onload = function() {
       document.getElementById('mainContent').style.filter = 'blur(12px)';
       document.getElementById('mainContent').style.pointerEvents = 'none';
