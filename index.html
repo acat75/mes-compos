@@ -7,27 +7,21 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
       min-height: 100vh;
       color: white;
       background: radial-gradient(ellipse at 20% 50%, #0b0c2a, #1c1f4a, #2a1f4a, #0b0c2a);
-      position: relative;
       overflow-x: hidden;
+      position: relative;
     }
 
     .floating-notes {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       pointer-events: none;
       z-index: 0;
       overflow: hidden;
@@ -40,26 +34,26 @@
       font-family: 'Georgia', serif;
     }
 
-    .floating-note:nth-child(1) { left: 2%; animation-duration: 22s; animation-delay: 0s; font-size: 65px; color: #ff69b4; transform: rotate(-15deg); }
-    .floating-note:nth-child(2) { left: 8%; animation-duration: 18s; animation-delay: 3s; font-size: 40px; color: #9370db; transform: rotate(10deg); }
-    .floating-note:nth-child(3) { left: 15%; animation-duration: 25s; animation-delay: 5s; font-size: 80px; color: #87cefa; transform: rotate(-8deg); }
-    .floating-note:nth-child(4) { left: 22%; animation-duration: 20s; animation-delay: 7s; font-size: 35px; color: #98fb98; transform: rotate(20deg); }
-    .floating-note:nth-child(5) { left: 30%; animation-duration: 23s; animation-delay: 2s; font-size: 70px; color: #ffa07a; transform: rotate(-25deg); }
-    .floating-note:nth-child(6) { left: 38%; animation-duration: 19s; animation-delay: 9s; font-size: 45px; color: #ff69b4; transform: rotate(15deg); }
-    .floating-note:nth-child(7) { left: 45%; animation-duration: 26s; animation-delay: 4s; font-size: 90px; color: #9370db; transform: rotate(-10deg); }
-    .floating-note:nth-child(8) { left: 52%; animation-duration: 21s; animation-delay: 6s; font-size: 38px; color: #87cefa; transform: rotate(25deg); }
-    .floating-note:nth-child(9) { left: 60%; animation-duration: 24s; animation-delay: 1s; font-size: 55px; color: #98fb98; transform: rotate(-20deg); }
-    .floating-note:nth-child(10) { left: 68%; animation-duration: 17s; animation-delay: 8s; font-size: 75px; color: #ffa07a; transform: rotate(12deg); }
-    .floating-note:nth-child(11) { left: 75%; animation-duration: 22s; animation-delay: 10s; font-size: 42px; color: #ff69b4; transform: rotate(-18deg); }
-    .floating-note:nth-child(12) { left: 82%; animation-duration: 20s; animation-delay: 3s; font-size: 60px; color: #9370db; transform: rotate(8deg); }
-    .floating-note:nth-child(13) { left: 90%; animation-duration: 24s; animation-delay: 7s; font-size: 50px; color: #87cefa; transform: rotate(-12deg); }
-    .floating-note:nth-child(14) { left: 96%; animation-duration: 19s; animation-delay: 5s; font-size: 35px; color: #98fb98; transform: rotate(18deg); }
-    .floating-note:nth-child(15) { left: 12%; animation-duration: 27s; animation-delay: 11s; font-size: 45px; color: #ffa07a; transform: rotate(-22deg); }
-    .floating-note:nth-child(16) { left: 48%; animation-duration: 21s; animation-delay: 2s; font-size: 70px; color: #ff69b4; transform: rotate(14deg); }
-    .floating-note:nth-child(17) { left: 88%; animation-duration: 23s; animation-delay: 6s; font-size: 55px; color: #9370db; transform: rotate(-16deg); }
-    .floating-note:nth-child(18) { left: 35%; animation-duration: 25s; animation-delay: 9s; font-size: 40px; color: #87cefa; transform: rotate(22deg); }
-    .floating-note:nth-child(19) { left: 72%; animation-duration: 18s; animation-delay: 4s; font-size: 65px; color: #98fb98; transform: rotate(-8deg); }
-    .floating-note:nth-child(20) { left: 55%; animation-duration: 22s; animation-delay: 8s; font-size: 48px; color: #ffa07a; transform: rotate(10deg); }
+    .floating-note:nth-child(1) { left: 2%; animation-duration: 22s; animation-delay: 0s; font-size: 65px; color: #ff69b4; }
+    .floating-note:nth-child(2) { left: 8%; animation-duration: 18s; animation-delay: 3s; font-size: 40px; color: #9370db; }
+    .floating-note:nth-child(3) { left: 15%; animation-duration: 25s; animation-delay: 5s; font-size: 80px; color: #87cefa; }
+    .floating-note:nth-child(4) { left: 22%; animation-duration: 20s; animation-delay: 7s; font-size: 35px; color: #98fb98; }
+    .floating-note:nth-child(5) { left: 30%; animation-duration: 23s; animation-delay: 2s; font-size: 70px; color: #ffa07a; }
+    .floating-note:nth-child(6) { left: 38%; animation-duration: 19s; animation-delay: 9s; font-size: 45px; color: #ff69b4; }
+    .floating-note:nth-child(7) { left: 45%; animation-duration: 26s; animation-delay: 4s; font-size: 90px; color: #9370db; }
+    .floating-note:nth-child(8) { left: 52%; animation-duration: 21s; animation-delay: 6s; font-size: 38px; color: #87cefa; }
+    .floating-note:nth-child(9) { left: 60%; animation-duration: 24s; animation-delay: 1s; font-size: 55px; color: #98fb98; }
+    .floating-note:nth-child(10) { left: 68%; animation-duration: 17s; animation-delay: 8s; font-size: 75px; color: #ffa07a; }
+    .floating-note:nth-child(11) { left: 75%; animation-duration: 22s; animation-delay: 10s; font-size: 42px; color: #ff69b4; }
+    .floating-note:nth-child(12) { left: 82%; animation-duration: 20s; animation-delay: 3s; font-size: 60px; color: #9370db; }
+    .floating-note:nth-child(13) { left: 90%; animation-duration: 24s; animation-delay: 7s; font-size: 50px; color: #87cefa; }
+    .floating-note:nth-child(14) { left: 96%; animation-duration: 19s; animation-delay: 5s; font-size: 35px; color: #98fb98; }
+    .floating-note:nth-child(15) { left: 12%; animation-duration: 27s; animation-delay: 11s; font-size: 45px; color: #ffa07a; }
+    .floating-note:nth-child(16) { left: 48%; animation-duration: 21s; animation-delay: 2s; font-size: 70px; color: #ff69b4; }
+    .floating-note:nth-child(17) { left: 88%; animation-duration: 23s; animation-delay: 6s; font-size: 55px; color: #9370db; }
+    .floating-note:nth-child(18) { left: 35%; animation-duration: 25s; animation-delay: 9s; font-size: 40px; color: #87cefa; }
+    .floating-note:nth-child(19) { left: 72%; animation-duration: 18s; animation-delay: 4s; font-size: 65px; color: #98fb98; }
+    .floating-note:nth-child(20) { left: 55%; animation-duration: 22s; animation-delay: 8s; font-size: 48px; color: #ffa07a; }
 
     @keyframes floatNote {
       0% { transform: translateY(110vh) rotate(0deg) scale(0.8); opacity: 0; }
@@ -68,19 +62,18 @@
       100% { transform: translateY(-10vh) rotate(720deg) scale(1.2); opacity: 0; }
     }
 
+    /* PAGE MOT DE PASSE */
     #password-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(ellipse at center, rgba(11,12,42,0.97), rgba(28,31,74,0.99));
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 100;
-      backdrop-filter: blur(20px);
     }
 
     #password-overlay .lock-icon {
@@ -101,17 +94,10 @@
       font-weight: 300;
       letter-spacing: 3px;
       margin-bottom: 25px;
-      background: linear-gradient(135deg, #ff69b4, #9370db, #87cefa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: white;
     }
 
-    #password-overlay .password-label .clef {
-      font-size: 1.1em;
-      -webkit-text-fill-color: initial;
-      color: #ff69b4;
-    }
+    #password-overlay .password-label .clef { color: #ff69b4; font-size: 1.1em; }
 
     #password-overlay input {
       padding: 14px 25px;
@@ -123,21 +109,12 @@
       width: 300px;
       text-align: center;
       transition: all 0.4s;
-      letter-spacing: 1px;
-      backdrop-filter: blur(10px);
     }
 
     #password-overlay input:focus {
       outline: none;
       border-color: #ff69b4;
       box-shadow: 0 0 50px rgba(255,105,180,0.15);
-      transform: scale(1.02);
-    }
-
-    #password-overlay input::placeholder {
-      color: rgba(255,255,255,0.2);
-      letter-spacing: 2px;
-      font-weight: 300;
     }
 
     #password-overlay .password-btn {
@@ -151,7 +128,6 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.4s;
-      letter-spacing: 2px;
       box-shadow: 0 5px 30px rgba(255,105,180,0.3);
     }
 
@@ -165,13 +141,13 @@
       margin-top: 18px;
       display: none;
       font-size: 0.95em;
-      letter-spacing: 1px;
       background: rgba(255,0,0,0.1);
       padding: 8px 25px;
       border-radius: 50px;
       border: 1px solid rgba(255,0,0,0.2);
     }
 
+    /* CONTENU PRINCIPAL */
     #main-content {
       display: none;
       position: relative;
@@ -182,7 +158,6 @@
     .header {
       text-align: center;
       padding: 50px 20px 30px;
-      position: relative;
     }
 
     .header h1 {
@@ -196,19 +171,11 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: shimmer 4s ease-in-out infinite;
-      text-shadow: none;
-      filter: drop-shadow(0 0 40px rgba(255,105,180,0.15));
     }
 
     @keyframes shimmer {
       0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
-    }
-
-    .header h1 .maj {
-      font-size: 1.3em;
-      display: inline-block;
-      transform: scaleY(1.1);
     }
 
     .header .subtitle {
@@ -233,7 +200,6 @@
       gap: 12px;
       flex-wrap: wrap;
       padding: 15px 20px 25px;
-      position: relative;
     }
 
     .category-btn {
@@ -245,9 +211,6 @@
       cursor: pointer;
       font-size: 0.9em;
       transition: all 0.4s;
-      backdrop-filter: blur(10px);
-      font-weight: 400;
-      letter-spacing: 1px;
       font-family: 'Inter', sans-serif;
     }
 
@@ -255,7 +218,6 @@
       background: rgba(255,255,255,0.08);
       color: white;
       border-color: rgba(255,255,255,0.15);
-      transform: translateY(-2px);
     }
 
     .category-btn.active {
@@ -276,9 +238,7 @@
       animation: fadeIn 0.6s ease;
     }
 
-    .category-section.active {
-      display: block;
-    }
+    .category-section.active { display: block; }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(25px); }
@@ -295,9 +255,7 @@
       color: rgba(255,255,255,0.7);
     }
 
-    .category-title .accent {
-      color: #ff69b4;
-    }
+    .category-title .accent { color: #ff69b4; }
 
     .track-container {
       background: rgba(255,255,255,0.03);
@@ -312,22 +270,6 @@
       overflow: hidden;
     }
 
-    .track-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(255,105,180,0.03), rgba(147,112,219,0.03));
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-
-    .track-container:hover::before {
-      opacity: 1;
-    }
-
     .track-container:hover {
       transform: translateY(-4px);
       border-color: rgba(255,105,180,0.15);
@@ -340,52 +282,21 @@
       margin-bottom: 10px;
       color: #fff;
       font-weight: 400;
-      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
       gap: 12px;
-      position: relative;
-      z-index: 1;
     }
 
-    .track-title .icon {
-      font-size: 1.1em;
-      opacity: 0.6;
-    }
-
-    .track-title .number {
-      font-size: 0.7em;
-      opacity: 0.2;
-      font-weight: 300;
-      margin-left: auto;
-      font-family: 'Inter', sans-serif;
-    }
+    .track-title .icon { font-size: 1.1em; opacity: 0.6; }
+    .track-title .number { font-size: 0.7em; opacity: 0.2; margin-left: auto; font-family: 'Inter', sans-serif; }
 
     .track-container audio {
       width: 100%;
       margin: 8px 0 12px;
       border-radius: 50px;
-      position: relative;
-      z-index: 1;
     }
 
-    .track-container audio::-webkit-media-controls-enclosure {
-      overflow: hidden;
-      border-radius: 50px;
-    }
-    
-    .track-container audio::-webkit-media-controls-panel {
-      width: calc(100% + 40px);
-      background: rgba(0,0,0,0.3);
-    }
-    
-    .track-container audio::-webkit-media-controls-download-button {
-      display: none !important;
-    }
-
-    .track-container audio::-webkit-media-controls-timeline {
-      margin-right: 0;
-    }
+    .track-container audio::-webkit-media-controls-download-button { display: none !important; }
 
     .download-btn {
       background: linear-gradient(135deg, rgba(255,105,180,0.15), rgba(147,112,219,0.15));
@@ -397,10 +308,7 @@
       font-size: 0.85em;
       font-weight: 400;
       transition: all 0.4s;
-      position: relative;
-      z-index: 1;
       font-family: 'Inter', sans-serif;
-      letter-spacing: 0.5px;
     }
 
     .download-btn:hover {
@@ -409,15 +317,6 @@
       color: white;
       transform: scale(1.03);
       box-shadow: 0 5px 25px rgba(255,105,180,0.3);
-    }
-
-    .empty-message {
-      text-align: center;
-      opacity: 0.2;
-      padding: 50px 20px;
-      font-size: 1.1em;
-      letter-spacing: 2px;
-      font-weight: 300;
     }
 
     .footer {
@@ -429,19 +328,17 @@
       font-weight: 300;
     }
 
+    /* OVERLAY TÉLÉCHARGEMENT */
     #download-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(20px);
       display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 200;
-      backdrop-filter: blur(20px);
     }
 
     #download-overlay .dl-icon {
@@ -467,7 +364,6 @@
       color: white;
       width: 280px;
       text-align: center;
-      transition: all 0.4s;
     }
 
     #download-overlay input:focus {
@@ -490,7 +386,6 @@
       font-weight: 500;
       cursor: pointer;
       transition: all 0.4s;
-      letter-spacing: 1px;
     }
 
     #download-overlay .dl-btn.validate {
@@ -527,35 +422,21 @@
     }
 
     @media (max-width: 768px) {
-      .header h1 { font-size: 2.8em; letter-spacing: 4px; }
-      .header .subtitle { letter-spacing: 4px; font-size: 0.8em; }
+      .header h1 { font-size: 2.8em; }
       .category-btn { padding: 8px 18px; font-size: 0.8em; }
-      .track-container { margin: 12px 10px; padding: 15px; }
-      .track-title { font-size: 1em; }
       #password-overlay .password-label { font-size: 1.6em; }
       #password-overlay input { width: 90%; }
-      .category-title { font-size: 1.5em; }
     }
 
     @media (max-width: 480px) {
-      .header h1 { font-size: 2em; letter-spacing: 2px; }
-      .header .subtitle { letter-spacing: 3px; font-size: 0.7em; }
-      .category-nav { gap: 8px; padding: 10px; }
+      .header h1 { font-size: 2em; }
       .category-btn { padding: 6px 14px; font-size: 0.7em; }
-      .track-container { padding: 12px; }
-      .track-title { font-size: 0.9em; }
       #password-overlay .password-label { font-size: 1.3em; }
     }
-
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #ff69b4, #9370db); border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: #ff69b4; }
   </style>
 </head>
 <body>
 
-  <!-- ===== NOTES FLOTTANTES ===== -->
   <div class="floating-notes">
     <div class="floating-note">♪</div>
     <div class="floating-note">♫</div>
@@ -579,14 +460,14 @@
     <div class="floating-note">♫</div>
   </div>
 
-  <!-- ===== OVERLAY MOT DE PASSE ===== -->
+  <!-- ===== PAGE MOT DE PASSE ===== -->
   <div id="password-overlay">
     <div class="lock-icon">🎵</div>
     <div class="password-label">
       Mot de passe <span class="clef">🎼</span>
     </div>
-    <input type="password" id="main-password" placeholder="・ ・ ・ ・ ・ ・" onkeypress="if(event.key==='Enter') verifyMainPassword()">
-    <button class="password-btn" onclick="verifyMainPassword()">Déverrouiller</button>
+    <input type="password" id="main-password" placeholder="・ ・ ・ ・ ・ ・">
+    <button class="password-btn" onclick="checkMainPassword()">Déverrouiller</button>
     <p id="password-error">✧ Code incorrect ✧</p>
   </div>
 
@@ -595,139 +476,240 @@
 
     <div class="header">
       <div class="ornament">✦ ✦ ✦</div>
-      <h1>
-        <span class="maj">M</span>es <span class="maj">C</span>ompos
-      </h1>
+      <h1><span class="maj">M</span>es <span class="maj">C</span>ompos</h1>
       <div class="subtitle">P I A N O  ✦  M P C  ✦  G U I T A R E  ✦  C O V E R S</div>
       <div class="ornament">♩ ♪ ♫ ♬</div>
     </div>
 
-    <!-- Navigation -->
     <div class="category-nav">
-      <button class="category-btn active" data-category="piano">🎹 Piano</button>
-      <button class="category-btn" data-category="mpc">🎛️ MPC Beats</button>
-      <button class="category-btn" data-category="guitare">🎸 Guitare</button>
-      <button class="category-btn" data-category="covers">🎤 Covers</button>
+      <button class="category-btn active" onclick="showCategory('piano', this)">🎹 Piano</button>
+      <button class="category-btn" onclick="showCategory('mpc', this)">🎛️ MPC Beats</button>
+      <button class="category-btn" onclick="showCategory('guitare', this)">🎸 Guitare</button>
+      <button class="category-btn" onclick="showCategory('covers', this)">🎤 Covers</button>
     </div>
 
     <div class="content">
 
-      <!-- ===== SECTION PIANO ===== -->
+      <!-- PIANO -->
       <div class="category-section active" id="category-piano">
         <h2 class="category-title">🎹 <span class="accent">P</span>iano</h2>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> Tourments <span class="number">01</span></div>
           <audio controls controlsList="nodownload" src="compo3.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo3.mp3', 'Tourments')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo3.mp3', 'Tourments')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> Étincelle <span class="number">02</span></div>
           <audio controls controlsList="nodownload" src="compo2.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo2.mp3', 'Étincelle')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo2.mp3', 'Étincelle')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> Je t'oublierai <span class="number">03</span></div>
           <audio controls controlsList="nodownload" src="compo1.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo1.mp3', 'Je t\'oublierai')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo1.mp3', 'Je t\'oublierai')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> Envol <span class="number">04</span></div>
           <audio controls controlsList="nodownload" src="compo4.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo4.mp3', 'Envol')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo4.mp3', 'Envol')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> Ophélie <span class="number">05</span></div>
           <audio controls controlsList="nodownload" src="compo9.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo9.mp3', 'Ophélie')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo9.mp3', 'Ophélie')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> À minuit... <span class="number">06</span></div>
           <audio controls controlsList="nodownload" src="compo6.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo6.mp3', 'À minuit...')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo6.mp3', 'À minuit...')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> Indépendance <span class="number">07</span></div>
           <audio controls controlsList="nodownload" src="compo7.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo7.mp3', 'Indépendance')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo7.mp3', 'Indépendance')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> Moments éphémères <span class="number">08</span></div>
           <audio controls controlsList="nodownload" src="compo8.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo8.mp3', 'Moments éphémères')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo8.mp3', 'Moments éphémères')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> Le Reveston <span class="number">09</span></div>
           <audio controls controlsList="nodownload" src="compo5.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo5.mp3', 'Le Reveston')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo5.mp3', 'Le Reveston')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> Dans le train... <span class="number">10</span></div>
           <audio controls controlsList="nodownload" src="compo10.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo10.mp3', 'Dans le train...')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo10.mp3', 'Dans le train...')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♬</span> La Prisonnière <span class="number">11</span></div>
           <audio controls controlsList="nodownload" src="compo11.mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('compo11.mp3', 'La Prisonnière')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('compo11.mp3', 'La Prisonnière')">⬇ Télécharger</button>
         </div>
       </div>
 
-      <!-- ===== SECTION MPC BEATS ===== -->
+      <!-- MPC BEATS -->
       <div class="category-section" id="category-mpc">
         <h2 class="category-title">🎛️ <span class="accent">M</span>PC <span class="accent">B</span>eats</h2>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♩</span> Évasion <span class="number">01</span></div>
           <audio controls controlsList="nodownload" src="Évasion.wav"></audio>
-          <button class="download-btn" onclick="promptDownload('Évasion.wav', 'Évasion')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('Évasion.wav', 'Évasion')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♩</span> Mon auberge était à la Grande-Ours <span class="number">02</span></div>
           <audio controls controlsList="nodownload" src="Mon auberge était à la Grande-Ours.wav"></audio>
-          <button class="download-btn" onclick="promptDownload('Mon auberge était à la Grande-Ours.wav', 'Mon auberge était à la Grande-Ours')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('Mon auberge était à la Grande-Ours.wav', 'Mon auberge était à la Grande-Ours')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♩</span> L'appel de l'été <span class="number">03</span></div>
           <audio controls controlsList="nodownload" src="L'appel de l'été.wav"></audio>
-          <button class="download-btn" onclick="promptDownload('L\'appel de l\'été.wav', 'L\'appel de l\'été')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('L\'appel de l\'été.wav', 'L\'appel de l\'été')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♩</span> Midnight <span class="number">04</span></div>
           <audio controls controlsList="nodownload" src="Midnight.wav"></audio>
-          <button class="download-btn" onclick="promptDownload('Midnight.wav', 'Midnight')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('Midnight.wav', 'Midnight')">⬇ Télécharger</button>
         </div>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♩</span> Un zeste de liberté <span class="number">05</span></div>
           <audio controls controlsList="nodownload" src="Un zeste de liberté.wav"></audio>
-          <button class="download-btn" onclick="promptDownload('Un zeste de liberté.wav', 'Un zeste de liberté')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('Un zeste de liberté.wav', 'Un zeste de liberté')">⬇ Télécharger</button>
         </div>
       </div>
 
-      <!-- ===== SECTION GUITARE ===== -->
+      <!-- GUITARE -->
       <div class="category-section" id="category-guitare">
         <h2 class="category-title">🎸 <span class="accent">G</span>uitare</h2>
 
         <div class="track-container">
           <div class="track-title"><span class="icon">♫</span> À minuit... <span class="number">01</span></div>
           <audio controls controlsList="nodownload" src="À minuit....mp3"></audio>
-          <button class="download-btn" onclick="promptDownload('À minuit....mp3', 'À minuit...')">⬇ Télécharger</button>
+          <button class="download-btn" onclick="openDownload('À minuit....mp3', 'À minuit...')">⬇ Télécharger</button>
         </div>
       </div>
 
-      <!-- ===== SECTION COVERS ===== -->
+      <!-- COVERS -->
       <div class="category-section" id="category-covers">
+        <h2 class="category-title">🎤 <span class="accent">C</span>overs</h2>
+
+        <div class="track-container">
+          <div class="track-title"><span class="icon">♫</span> Numb - Linkin Park <span class="number">01</span></div>
+          <audio controls controlsList="nodownload" src="Numb - Linkin Park.mp3"></audio>
+          <button class="download-btn" onclick="openDownload('Numb - Linkin Park.mp3', 'Numb - Linkin Park')">⬇ Télécharger</button>
+        </div>
+
+        <div class="track-container">
+          <div class="track-title"><span class="icon">♫</span> Wonderwall - Oasis <span class="number">02</span></div>
+          <audio controls controlsList="nodownload" src="Wonderwall - Oasis.mp3"></audio>
+          <button class="download-btn" onclick="openDownload('Wonderwall - Oasis.mp3', 'Wonderwall - Oasis')">⬇ Télécharger</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">© 2025 Alice · Tous droits réservés</div>
+  </div>
+
+  <!-- ===== OVERLAY TÉLÉCHARGEMENT ===== -->
+  <div id="download-overlay">
+    <div class="dl-icon">🔒</div>
+    <div class="dl-label">⬇️ Code de téléchargement requis</div>
+    <input type="password" id="download-password" placeholder="・ ・ ・ ・ ・ ・">
+    <div class="dl-buttons">
+      <button class="dl-btn validate" onclick="checkDownloadPassword()">Valider</button>
+      <button class="dl-btn cancel" onclick="closeDownload()">Annuler</button>
+    </div>
+    <p id="download-error">✧ Code incorrect ✧</p>
+  </div>
+
+  <script>
+    function checkMainPassword() {
+      var input = document.getElementById('main-password').value;
+      var correct = "Louise 64!"; 
+      if (input === correct) {
+        document.getElementById('password-overlay').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      } else {
+        document.getElementById('password-error').style.display = 'block';
+        setTimeout(function() {
+          document.getElementById('password-error').style.display = 'none';
+        }, 3000);
+      }
+    }
+    
+    var fileToDownload = '';
+    var trackTitle = '';
+
+    function openDownload(filename, title) {
+      fileToDownload = filename;
+      trackTitle = title;
+      document.getElementById('download-password').value = '';
+      document.getElementById('download-error').style.display = 'none';
+      document.getElementById('download-overlay').style.display = 'flex';
+    }
+
+    function checkDownloadPassword() {
+      var input = document.getElementById('download-password').value;
+      var correct = "Youyou 02!";
+      if (input === correct) {
+        downloadFile(fileToDownload, trackTitle);
+        document.getElementById('download-overlay').style.display = 'none';
+      } else {
+        document.getElementById('download-error').style.display = 'block';
+        setTimeout(function() {
+          document.getElementById('download-error').style.display = 'none';
+        }, 3000);
+      }
+    }
+
+    function closeDownload() {
+      document.getElementById('download-overlay').style.display = 'none';
+      fileToDownload = '';
+      trackTitle = '';
+    }
+
+    function downloadFile(filename, title) {
+      var link = document.createElement('a');
+      link.href = filename;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      alert('✅ Téléchargement de "' + title + '" autorisé !');
+    }
+
+    // ========================================
+    // CATÉGORIES
+    // ========================================
+    function showCategory(category, btn) {
+      document.querySelectorAll('.category-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.category-section').forEach(function(s) { s.classList.remove('active'); });
+      document.getElementById('category-' + category).classList.add('active');
+    }
+
+    // ========================================
+    // VALIDER AVEC LA TOUCHE ENTRÉE
+    // ========================================
+    document.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        if (
