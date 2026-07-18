@@ -22,7 +22,6 @@
       overflow-x: hidden;
     }
 
-    /* ===== NOTES FLOTTANTES ===== */
     .floating-notes {
       position: fixed;
       top: 0;
@@ -69,7 +68,6 @@
       100% { transform: translateY(-10vh) rotate(720deg) scale(1.2); opacity: 0; }
     }
 
-    /* ===== PAGE MOT DE PASSE ===== */
     #password-overlay {
       position: fixed;
       top: 0;
@@ -174,7 +172,6 @@
       border: 1px solid rgba(255,0,0,0.2);
     }
 
-    /* ===== CONTENU PRINCIPAL ===== */
     #main-content {
       display: none;
       position: relative;
@@ -182,7 +179,6 @@
       min-height: 100vh;
     }
 
-    /* ===== HEADER ===== */
     .header {
       text-align: center;
       padding: 50px 20px 30px;
@@ -231,7 +227,6 @@
       letter-spacing: 15px;
     }
 
-    /* ===== NAVIGATION ===== */
     .category-nav {
       display: flex;
       justify-content: center;
@@ -270,7 +265,6 @@
       box-shadow: 0 0 40px rgba(255,105,180,0.05);
     }
 
-    /* ===== CONTENU ===== */
     .content {
       max-width: 900px;
       margin: 0 auto;
@@ -305,7 +299,6 @@
       color: #ff69b4;
     }
 
-    /* ===== TRACKS ===== */
     .track-container {
       background: rgba(255,255,255,0.03);
       border-radius: 16px;
@@ -418,7 +411,6 @@
       box-shadow: 0 5px 25px rgba(255,105,180,0.3);
     }
 
-    /* ===== MESSAGE VIDE ===== */
     .empty-message {
       text-align: center;
       opacity: 0.2;
@@ -428,7 +420,6 @@
       font-weight: 300;
     }
 
-    /* ===== FOOTER ===== */
     .footer {
       text-align: center;
       padding: 40px 20px 30px;
@@ -438,7 +429,6 @@
       font-weight: 300;
     }
 
-    /* ===== OVERLAY TÉLÉCHARGEMENT ===== */
     #download-overlay {
       position: fixed;
       top: 0;
@@ -536,7 +526,6 @@
       border: 1px solid rgba(255,0,0,0.2);
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .header h1 { font-size: 2.8em; letter-spacing: 4px; }
       .header .subtitle { letter-spacing: 4px; font-size: 0.8em; }
@@ -558,7 +547,6 @@
       #password-overlay .password-label { font-size: 1.3em; }
     }
 
-    /* ===== SCROLLBAR ===== */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
     ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #ff69b4, #9370db); border-radius: 10px; }
@@ -735,4 +723,11 @@
         <h2 class="category-title">🎸 <span class="accent">G</span>uitare</h2>
 
         <div class="track-container">
-          <div class="track
+          <div class="track-title"><span class="icon">♫</span> À minuit... <span class="number">01</span></div>
+          <audio controls controlsList="nodownload" src="À minuit....mp3"></audio>
+          <button class="download-btn" onclick="promptDownload('À minuit....mp3', 'À minuit...')">⬇ Télécharger</button>
+        </div>
+      </div>
+
+      <!-- ===== SECTION COVERS ===== -->
+      <div class="category-section" id="category-covers">
