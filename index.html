@@ -25,13 +25,13 @@
       position: relative;
     }
 
-    /* conteneur principal avec flou + transparence */
+    /* conteneur principal avec flou + transparence (flou réduit) */
     .glass-wrapper {
       width: 100%;
       max-width: 1000px;
-      backdrop-filter: blur(16px) brightness(0.85);
-      -webkit-backdrop-filter: blur(16px) brightness(0.85);
-      background: rgba(20, 15, 35, 0.35);
+      backdrop-filter: blur(6px) brightness(0.88);
+      -webkit-backdrop-filter: blur(6px) brightness(0.88);
+      background: rgba(20, 15, 35, 0.30);
       border-radius: 56px;
       padding: 30px 25px 40px;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06);
@@ -339,15 +339,6 @@
       text-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
 
-    .back-hint {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.25);
-      letter-spacing: 1px;
-      cursor: default;
-    }
-
     @media (max-width: 700px) {
       .hero-title { font-size: 2.8rem; letter-spacing: 3px; }
       .category-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -403,7 +394,7 @@
         <div class="category-badge">1 pièce</div>
       </div>
       <div class="category-card" data-category="covers">
-        <span class="category-icon">🎤</span>
+        <span class="category-icon">♫</span>
         <div class="category-name">Covers</div>
         <div class="category-badge">2 reprises</div>
       </div>
@@ -412,7 +403,7 @@
     <!-- CONTENEUR DYNAMIQUE POUR LES PISTES -->
     <div class="tracks-container" id="tracksContainer">
       <div class="tracks-grid" id="tracksGrid"></div>
-      <div class="back-hint" id="backHint">← Cliquez sur une autre catégorie pour changer</div>
+      <!-- message supprimé -->
     </div>
   </div>
 
@@ -420,8 +411,8 @@
   <div class="password-overlay" id="passwordOverlay">
     <div class="password-box">
       <div class="lock-icon">🔒</div>
-      <p style="font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 2px;">Accès · Mes Compos</p>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+      <!-- texte "Accès · Mes Compos" supprimé -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px;">
         <input type="password" id="pagePassword" class="password-input" placeholder="code d'accès">
         <button class="password-btn" onclick="checkPagePassword()">Valider</button>
       </div>
@@ -482,7 +473,6 @@
     const categoryCards = document.querySelectorAll('.category-card');
     const tracksContainer = document.getElementById('tracksContainer');
     const tracksGrid = document.getElementById('tracksGrid');
-    const backHint = document.getElementById('backHint');
 
     // Fonction pour afficher les pistes d'une catégorie
     function renderCategory(categoryKey) {
@@ -499,7 +489,6 @@
       // Générer le HTML des pistes
       let html = '';
       tracks.forEach(track => {
-        // Échapper les guillemets simples dans le titre pour le onclick
         const safeTitle = track.title.replace(/'/g, "\\'");
         html += `
           <div class="track-item">
@@ -525,7 +514,6 @@
     categoryCards.forEach(card => {
       card.addEventListener('click', function() {
         const category = this.dataset.category;
-        // Si la même catégorie est déjà active, on la referme (toggle)
         if (activeCategory === category && tracksContainer.classList.contains('open')) {
           tracksContainer.classList.remove('open');
           this.classList.remove('active');
@@ -601,9 +589,9 @@
       }
     });
 
-    // Au chargement : contenu flou
+    // Au chargement : contenu flou (réduit)
     window.onload = function() {
-      document.getElementById('mainContent').style.filter = 'blur(12px)';
+      document.getElementById('mainContent').style.filter = 'blur(4px)';
       document.getElementById('mainContent').style.pointerEvents = 'none';
     };
   </script>
